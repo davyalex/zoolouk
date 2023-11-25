@@ -15,7 +15,22 @@ class AccountController extends Controller
     public function account()
     {
         if (Auth::check()) {
-            return view('site.pages.user-account.dashboard');
+//statistic of vendor 
+$orders = Order::withWhereHas(
+    'products',
+    fn ($q) => $q->with('media')->where('user_id', Auth::user()->id)
+)
+->orderBy('created_at', 'DESC')->get();
+
+$orders_attente = Order::withWhereHas(
+    'products',
+    fn ($q) => $q->with('media')->where('user_id', Auth::user()->id)
+                                ->where('available',null)
+)
+->orderBy('created_at', 'DESC')->get();
+
+
+            return view('site.pages.user-account.dashboard',compact('orders','orders_attente'));
         } else {
             return redirect()->route('login-form');
         }
@@ -43,30 +58,36 @@ class AccountController extends Controller
 
 
     // list order user
-public function order(){
+    public function order()
+    {
 
-    $orders= Order::where('user_id', Auth::user()->id)
-    ->with(['products'
-        =>fn($q)=>$q->with('media')
-    ])
-    ->orderBy('created_at','DESC')->get();
-    // dd($orders->toArray());
-    return view('site.pages.user-account.order',compact('orders'));
-}
+        $orders = Order::where('user_id', Auth::user()->id)
+            ->with([
+                'products'
+                => fn ($q) => $q->with('media')
+            ])
+            ->orderBy('created_at', 'DESC')->get();
+        // dd($orders->toArray());
+        return view('site.pages.user-account.order', compact('orders'));
+    }
 
 
     // detail of order user
-    public function orderDetail($id){
+    public function orderDetail($id)
+    {
 
-        $orders= Order::whereId($id)
-        ->with(['user','products'
-            =>fn($q)=>$q->with('media')
-        ])
-        ->orderBy('created_at','DESC')->first();
+        $orders = Order::whereId($id)
+            ->with([
+                'user', 'products'
+                => fn ($q) => $q->with('media')
+            ])
+            ->orderBy('created_at', 'DESC')->first();
         // dd($orders->toArray());
-        return view('site.pages.user-account.detail-order',compact('orders'));
+        return view('site.pages.user-account.detail-order', compact('orders'));
     }
 
 
 
+
+    
 }

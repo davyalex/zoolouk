@@ -6,8 +6,10 @@ use App\Http\Controllers\site\AuthController;
 use App\Http\Controllers\site\CartController;
 use App\Http\Controllers\site\SiteController;
 use App\Http\Controllers\admin\OrderController;
+use App\Http\Controllers\site\VendorController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\site\AccountController;
+use App\Http\Controllers\site\SupportController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DeliveryController;
@@ -50,6 +52,12 @@ Route::controller(AuthController::class)->group(function () {
     route::get('/logout', 'logout')->name('logout');
 });
 
+//support 
+Route::controller(SupportController::class)->group(function () {
+    route::get('/help', 'index')->name('help-index');
+   
+});
+
 Route::controller(AccountController::class)->group(function () {
     route::get('/my-account', 'account')->name('my-account')->middleware(['auth']);
     route::get('/my-profile/{id}', 'profile')->name('my-profile')->middleware(['auth']);
@@ -57,6 +65,18 @@ Route::controller(AccountController::class)->group(function () {
     route::get('/my-order', 'order')->name('my-order')->middleware(['auth']);
     route::get('/my-order/{id}', 'orderDetail')->name('detail-order')->middleware(['auth']);
 });
+
+
+//vendor 
+Route::controller(VendorController::class)->group(function () {
+    route::get('/vendor-order', 'vendorOrder')->name('vendor-order')->middleware(['auth']);
+    route::get('/vendor-order/{id}', 'vendorOrderDetail')->name('vendor-detail-order')->middleware(['auth']);
+    route::post('/vendor-available/{id}', 'vendorAvailable')->name('vendor-available')->middleware(['auth']);
+  
+});
+
+
+
 
 Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'home')->name('home');

@@ -127,7 +127,7 @@
                                 <div class="name">Mon compte</div>
                             </div>
                         </a>
-                        <a class="nav-link" href="contact-us.html">
+                        <a class="nav-link" href="{{route('help-index')}}">
                             <div class="d-flex flex-column align-items-center">
                                 <div class="icon"><i class="bi bi-question-circle"></i></div>
                                 <div class="name">Aide</div>

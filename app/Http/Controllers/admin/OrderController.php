@@ -9,11 +9,11 @@ use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
-    //get all order
+    //get all order 
     public function getAllOrder(){
-        // dd(Carbon::today());
+        //request('s') ## s => status
         $orders = Order::orderBy('created_at','DESC')
-        // ->when(request('d'), fn($q)=>$q->where('created_at' ,Carbon::today()))
+        // ->when(request('d'), fn($q)=>Carbon::parse($q->created_at)->format('d'))
         ->when(request('s'), fn($q)=>$q->whereStatus(request('s')))
         ->get();
 
@@ -37,7 +37,7 @@ class OrderController extends Controller
 
         $orders= Order::whereId($id)
         ->with(['user','products'
-            =>fn($q)=>$q->with('media')
+            =>fn($q)=>$q->with('media')->where('available', 'disponible')
         ])
         ->orderBy('created_at','DESC')->first();
         // dd($orders->toArray());
@@ -47,7 +47,7 @@ class OrderController extends Controller
 
     //change state
     public function changeState(Request $request){
-        $state = request('cs');
+        $state = request('cs'); // cs => change state 
         $orderId = request('id');
 
         $changeState = Order::whereId($orderId)->update([

@@ -33,19 +33,20 @@
 
             <div class="col-md-8">
                 <div class="py-3 d-flex justify-content-between">
-                    <a class="btn btn-dark text-white py-3" onclick="history.go(-1)" href="#"><i data-feather="arrow-left"></i>Retour</a>
+                    <a class="btn btn-dark text-white py-3" onclick="history.go(-1)" href="#"><i
+                            data-feather="arrow-left"></i>Retour</a>
                     <a class="btn btn-dark text-white" style="margin-bottom: 10px" href="" id="print"> <i
                             data-feather="printer"></i>Imprimer</a>
-    
+
                 </div>
-             
+
                 {{-- <a class="btn btn-dark text-white" style="margin-bottom: 10px" href="#" id="download"> <i
                         data-feather="download"></i>Télecharger</a> --}}
 
                 <div class="card" id="div_print">
 
                     <div class="text-center logo p-2 px-5">
-                        <img src="{{ asset('assets/images/logo/zoolouk.png') }}" width="25%">
+                        <img src="{{ asset('assets/images/logo/logo_zoolouk/logo_transparent_noir.png') }}" width="25%">
                     </div>
                     <div class="invoice p-5" style="box-shadow: none">
 
@@ -106,7 +107,18 @@
                             <table class="table table-borderless">
 
                                 <tbody>
+                                    @php
+                                        //pu * qte
+                                        $price = 0;
+                                        $subTotal = 0;
+                                    @endphp
                                     @foreach ($orders['products'] as $item)
+                                        @php
+                                            
+                                             $price =  $item['pivot']['quantity'] * $item['pivot']['unit_price'] ;
+                                              $subTotal +=$price
+                                        @endphp
+                                            
                                         <tr>
                                             <td width="20%">
 
@@ -140,6 +152,9 @@
 
                         </div>
 
+
+
+
                         <div class="row d-flex justify-content-end">
 
                             <div class="col-md-5">
@@ -158,7 +173,7 @@
                                             </td>
                                             <td>
                                                 <div class="text-right">
-                                                    <span>{{ $orders['subtotal'] }} </span>
+                                                    <span>{{ number_format($subTotal) }} </span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -222,7 +237,12 @@
                                             </td>
                                             <td>
                                                 <div class="text-right">
-                                                    <span class="font-weight-bold">{{ $orders['total'] }} </span>
+                                                    @php
+                                                        $delivery_price = str_replace("," , "" ,$orders['delivery_price']);
+                                                        $delivery_price =  str_replace("FCFA" , "" ,$delivery_price);
+                                                        $total = $delivery_price + $subTotal ;
+                                                    @endphp
+                                                    <span class="font-weight-bold">{{number_format($total)}} FCFA </span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -255,8 +275,8 @@
 
 @section('script')
     <script src="{{ asset('admin/assets/js/jQuery.print.js') }}"></script>
-    @endsection
-    <script src="{{ asset('admin/assets/js/jquery.min.js') }}"></script>
+@endsection
+<script src="{{ asset('admin/assets/js/jquery.min.js') }}"></script>
 
 <script type="text/javascript">
     $('#print').click(function(e) {

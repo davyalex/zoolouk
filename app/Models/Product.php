@@ -74,7 +74,7 @@ class Product extends Model implements HasMedia
 
     public function orders(): BelongsToMany
     {
-        return $this->belongsToMany(Order::class)->withPivot(['quantity', 'unit_price', 'total','options'])
+        return $this->belongsToMany(Order::class)->withPivot(['quantity', 'unit_price', 'total','options','available'])
             ->withTimestamps();
     }
 

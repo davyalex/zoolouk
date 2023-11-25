@@ -4,10 +4,38 @@
     <!--start to page content-->
     {{-- @auth --}}
         <div class="page-content p-0 ">
-
+@include('admin.components.validationMessage')
             
             <div class="py-3 d-flex justify-content-between">
-                <a class="btn btn-dark text-white py-3" onclick="history.go(-1)" href="#"><i data-feather="arrow-left"></i>Retour</a>
+                <a href="{{route('order.index')}}" class="btn btn-dark text-white py-3" href="#"><i data-feather="arrow-left"></i>Retour</a>
+                
+                @if ($orders['status']!='livrée')
+                <div class="dropdown">
+                    <a href="#" data-toggle="dropdown"
+                        class="btn btn-dark dropdown-toggle">Options</a>
+                    <div class="dropdown-menu">
+                        <a href="/admin/order/changeState?cs=confirmée && id={{$orders['id']}}"
+                        class="dropdown-item has-icon"><i
+                            class="fas fa-arrow-down"></i>
+                        Confirmer</a>
+                            
+                            <a href="/admin/order/changeState?cs=livrée && id={{$orders['id']}}"
+                            class="dropdown-item has-icon"><i
+                                class="fas fa-shipping-fast"></i>
+                            Livrée</a>
+                        <a href="/admin/order/changeState?cs=attente && id={{$orders['id']}}"
+                            class="dropdown-item has-icon"><i
+                                class="fas fa-arrow-down"></i>
+                            Attente</a>
+
+                        <a href="/admin/order/changeState?cs=annulée && id={{$orders['id']}}" role="button" data-id="{{ $orders['id'] }}"
+                            class="dropdown-item has-icon text-danger delete"><i
+                                data-feather="x-circle"></i> Annuler</a>
+
+                    </div>
+                </div>
+                @endif
+                
                 <a class="btn btn-dark text-white py-3"" href="{{route('order.invoice',$orders['id'])}}"><i data-feather="file-text"></i>Facture</a>
 
             </div>
@@ -52,10 +80,37 @@
                                     <span class="fst-italic">Pu :{{ number_format($item['pivot']['unit_price']) }} FCFA
                                     </span>
 
+                                    <br><h5 class="text-dark fw-bold">{{$item['pivot']['available']==null ? 'En attente de verification' : $item['pivot']['available'] }} </h5>
 
                                 </div>
                             </div>
                         </div>
+                         {{-- start change state of available --}}
+
+                         @if ($orders['status'] =='attente' || $orders['status'] =='annulée')
+                            
+                        <form class=""action="{{route('vendor-available', $orders['id'])}}" method="post">
+                            @csrf
+                           <div class="row form-group">
+                            <div class="col-8">
+                                <select class="form-control" name="state" id="" required>
+                                    <option disabled value selected>Choisir une option</option>
+                                    <option value="disponible">Disponible</option>
+                                    <option value="pas disponible">Pas disponible</option>
+                                    <option value="reserve">Reservation</option>
+                                </select>
+                                <input value="{{$item['id']}}" name="product_id" type="text" hidden>
+                               
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-dark" type="submit">Valider</button>
+                            </div>
+                            
+                            </div> 
+                        </form>
+                        @endif
+
+                        {{-- end change state of available --}}
 
                     </li>
                 @endforeach
@@ -64,9 +119,9 @@
 
                 <div class="fst-italic p-2">
                     <span class="text-dark">#Livraison à domicile</span><br>
-                    <span class="">Lieu de livraison: {{ $orders['delivery_name'] }} </span><br>
-                    <span>Tarif livraison: {{ $orders['delivery_price'] }} </span><br>
-                    <span>Client: {{ $orders['user']['name'] }} </span><br>
+                    <span class="">Lieu de livraison: <b>{{ $orders['delivery_name'] }}</b> </span><br>
+                    <span>Tarif livraison: <b>{{ $orders['delivery_price'] }}</b> </span><br>
+                    <span>Client: <b>{{ $orders['user']['name'] }}</b> </span><br>
 
                 </div>
 
@@ -74,8 +129,8 @@
                 <h6 class="p-2" style="background-color: #e1e6ea">Expédition</h6>
 
                 <div class="fst-italic p-2">
-                    <span class="">Livraison prevue le :  {{ \Carbon\Carbon::parse($orders['delivery_planned'])->isoFormat('dddd D MMMM YYYY') }} </span><br>
-                    <span class="">Date de livraison : {{ $orders['delivery_date']!==null ? \Carbon\Carbon::parse($orders['delivery_date'])->isoFormat('dddd D MMMM YYYY') : 'En attende livraison'  }} </span><br>
+                    <span class="">Livraison prevue le :  <b>{{ \Carbon\Carbon::parse($orders['delivery_planned'])->isoFormat('dddd D MMMM YYYY') }}</b> </span><br>
+                    <span class="">Date de livraison : <b>{{ $orders['delivery_date']!==null ? \Carbon\Carbon::parse($orders['delivery_date'])->isoFormat('dddd D MMMM YYYY') : 'En attende livraison'  }}</b> </span><br>
 
                 </div>
 

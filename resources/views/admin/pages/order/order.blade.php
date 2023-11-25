@@ -34,7 +34,7 @@
                                             <tr>
                                                 <td>{{ ++$key }} </td>
                                                 <td><span style="font-weight:bold">{{ $item['code'] }}</span>
-                                                    <br> <span class="{{$item['status']=='attente' ? 'bg-primary': ($item['status']=='livrée' ? 'bg-success' : ($item['status']=='annulée' ? 'bg-danger' : ''))}} text-white p-1 px-3">{{ $item['status'] }}
+                                                    <br> <span class="{{$item['status']=='attente' ? 'bg-primary': ($item['status']=='livrée' ? 'bg-success' : ($item['status']=='confirmée' ? 'bg-blue' :  ($item['status']=='annulée' ? 'bg-danger' : '')))}} text-white p-1 px-3">{{ $item['status'] }}
                                                     </span>
                                                 </td>
                                                 <td>{{ $item['user']['name'] }} </td>
@@ -55,7 +55,12 @@
                                                             <a href="{{ route('order.show', $item['id']) }}"
                                                                 class="dropdown-item has-icon"><i class="fas fa-eye"></i>
                                                                 Detail</a>
-                                                                
+
+                                                                @if ($item['status']!='livrée')
+                                                                <a href="/admin/order/changeState?cs=confirmée && id={{$item['id']}}"
+                                                                class="dropdown-item has-icon"><i
+                                                                    class="fas fa-check"></i>
+                                                                Confirmée</a>
                                                                 <a href="/admin/order/changeState?cs=livrée && id={{$item['id']}}"
                                                                 class="dropdown-item has-icon"><i
                                                                     class="fas fa-shipping-fast"></i>
@@ -69,6 +74,9 @@
                                                                 class="dropdown-item has-icon text-danger delete"><i
                                                                     data-feather="x-circle"></i> Annuler</a>
 
+                                                                @endif
+
+                                                               
                                                         </div>
                                                     </div>
                                                 </td>

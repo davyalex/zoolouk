@@ -17,6 +17,8 @@ return new class extends Migration
             $table->double('unit_price')->nullable(); //prix  unitaire
             $table->double('total')->nullable(); // total quantite * prix unitaire
             $table->string('options')->nullable(); // options size ...
+            $table->string('available')->nullable(); // disponibilité de produit ##yes or no ...
+
 
             $table->foreignId('order_id')
             ->nullable()
