@@ -55,6 +55,12 @@ Route::controller(AuthController::class)->group(function () {
 //support 
 Route::controller(SupportController::class)->group(function () {
     route::get('/help', 'index')->name('help-index');
+    route::get('/becomeVendor', 'becomeVendor')->name('help-becomeVendor');
+    route::get('/privacyPolicy', 'privacyPolicy')->name('help-privacyPolicy');
+    route::get('/assistance', 'assistance')->name('help-assistance');
+    route::get('/about', 'about')->name('help-about');
+
+
    
 });
 

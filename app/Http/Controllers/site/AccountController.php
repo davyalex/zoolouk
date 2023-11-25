@@ -7,6 +7,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
@@ -27,7 +28,7 @@ $orders_attente = Order::withWhereHas(
     fn ($q) => $q->with('media')->where('user_id', Auth::user()->id)
                                 ->where('available',null)
 )
-->orderBy('created_at', 'DESC')->get();
+->orderBy('created_at', 'DESC')->count();
 
 
             return view('site.pages.user-account.dashboard',compact('orders','orders_attente'));
@@ -45,12 +46,24 @@ $orders_attente = Order::withWhereHas(
             $user = User::findOrFail($id)->first();
             return view('site.pages.user-account.profile', compact('user'));
         } elseif (request()->method() == 'POST') {
+            // dd($request);
             $url = $request['url_previous'];
+            
+            $new_password = '';
+            if ($request->has('password')) {
+               $new_password = $request['password'];
+            }
 
             $user = User::whereId($id)->update([
                 'name' => $request['name'],
                 'phone' => $request['phone'],
                 'email' => $request['email'],
+                'shop_name' => $request['shop_name'],
+                'localisation' => $request['localisation'],
+                'password' => Hash::make($new_password),
+                
+
+
             ]);
             return redirect()->to($url)->withSuccess('Modification reussie');
         }

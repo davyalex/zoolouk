@@ -5,12 +5,12 @@
 @section('content')
 
     <style>
-        .adapted-img-banner img {
+        /* .adapted-img-banner img {
             width: 100%;
             height: 100px;
             object-fit: cover;
 
-        }
+        } */
 
         .adapted-img-product img {
             /* width:100%; */

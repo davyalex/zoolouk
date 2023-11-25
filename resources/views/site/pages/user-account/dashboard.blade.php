@@ -65,7 +65,7 @@
             </div>
 
         
-            @if (Auth::user()->role !='client')
+            @if (Auth::user() && Auth::user()->role !='client')
             <hr class="my-5">
 
 

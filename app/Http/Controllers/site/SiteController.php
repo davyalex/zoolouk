@@ -76,6 +76,8 @@ class SiteController extends Controller
     {
         $category = request('category');
         $subcategory = request('subcategory');
+        $collection = request('collection');
+
         if ($category) {
 
             $product = Product::whereHas(
@@ -100,7 +102,20 @@ class SiteController extends Controller
             //show title page
             $title = SubCategory::whereId($subcategory)->first();
             $title_name =  $title['name'];
-        } else {
+
+        } else if ($collection) {
+
+            $product = Product::with(['collection', 'media', 'categories'])
+                ->where('collection_id', $collection)->get();
+
+            $category = Category::whereId($category)->with('media')->first();
+
+            //show title page
+            $title = Collection::whereId($collection)->first();
+            $title_name =  $title['name'];
+        } 
+        
+        else {
             $product = Product::all();
             $title_name = 'Boutique';
             $title =   $category = Category::with('media')->get()->random(1);

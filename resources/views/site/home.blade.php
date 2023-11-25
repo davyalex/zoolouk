@@ -10,17 +10,18 @@
         @include('site.sections.slider')
         <!--end banner slider-->
 
-        <div class="py-2"></div>
+        {{-- <div class="py-1"></div> --}}
 
-        <!--start category-->
-        @include('site.sections.category')
-        <!--end category-->
+          <!--start collection-->
+          @include('site.sections.collection')
+          <!--end collection-->
+     
+        {{-- <div class="py-1"></div> --}}
 
-        <div class="py-2"></div>
-
-        <!--start collection-->
-        {{-- @include('site.sections.collection') --}}
-        <!--end collection-->
+      
+   <!--start category-->
+   {{-- @include('site.sections.category') --}}
+   <!--end category-->
 
 
         <div class="py-2"></div>

@@ -5,12 +5,12 @@
 @section('content')
 
 <style>
-     .adapted-image-cat img {
+     /* .adapted-image-cat img {
         width:auto;
         height:100px;
         object-fit: contain;
         text-align: center;
-    }
+    } */
 </style>
 
     <!--start to page content-->

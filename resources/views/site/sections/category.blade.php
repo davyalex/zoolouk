@@ -1,10 +1,10 @@
 <style>
-   .adapted-image {
+   /* .adapted-image {
         width:auto;
         height:70px;
         object-fit: contain;
         text-align: center;
-    }
+    } */
 </style>
 
 <div class="category">

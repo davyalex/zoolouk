@@ -11,7 +11,7 @@
            
 
             <div class="mb-3">
-                <a class="#" href="">
+                <a class="nav-link text-dark" href="{{route('help-becomeVendor')}}">
                     <div class="card rounded-3">
                         <div class="card-body py-2">
                             <div class="d-flex align-items-center gap-3 fs-6">
@@ -25,7 +25,7 @@
             </div>
 
             <div class="mb-3">
-                <a class="#" href="">
+                <a class="nav-link text-dark" href="{{route('help-assistance')}}">
                     <div class="card rounded-3">
                         <div class="card-body py-2">
                             <div class="d-flex align-items-center gap-3 fs-6">
@@ -39,7 +39,7 @@
             </div>
 
             <div class="mb-3">
-                <a class="#" href="">
+                <a class="nav-link text-dark" href="{{route('help-about')}}">
                     <div class="card rounded-3">
                         <div class="card-body py-2">
                             <div class="d-flex align-items-center gap-3 fs-6">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="mb-3">
-                <a class="#" href="">
+                <a class="nav-link text-dark" href="{{route('help-privacyPolicy')}}">
                     <div class="card rounded-3">
                         <div class="card-body py-2">
                             <div class="d-flex align-items-center gap-3 fs-6">

@@ -108,14 +108,14 @@
                     <input type="text" name="url_previous" value="{{ url()->previous() }}" hidden>
 
 
-                    <div class="d-flex align-items-center justify-content-between mb-3">
+                    {{-- <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">Se souvenir de moi</label>
                         </div>
                         <div class=""><a href="authentication-otp-varification.html" class="forgot-link">Mot de passe
                                 oublié?</a></div>
-                    </div>
+                    </div> --}}
                     <div class="mb-0 d-grid">
                         <button type="submit" class="btn btn-dark btn-ecomm rounded-3">Valider</button>
                     </div>
