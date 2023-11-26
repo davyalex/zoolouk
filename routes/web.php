@@ -10,12 +10,12 @@ use App\Http\Controllers\site\VendorController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\site\AccountController;
 use App\Http\Controllers\site\SupportController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DeliveryController;
+use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\DeliveryController;
 use App\Http\Controllers\admin\AuthAdminController;
 use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\Admin\CollectionController;
+use App\Http\Controllers\admin\CollectionController;
 use App\Http\Controllers\admin\SubCategoryController;
 
 /*
