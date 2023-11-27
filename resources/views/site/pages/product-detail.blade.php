@@ -2,7 +2,7 @@
 
 @section('title', $product['title'])
 @section('description',$product->description)
-@section('image',asset($post->getFirstMediaUrl('product_image')))
+@section('image',asset($product->getFirstMediaUrl('product_image')))
 @section('url',url()->current())
 
 @section('content')
