@@ -1,6 +1,7 @@
 @extends('site.layouts.app')
 
 @section('title', 'Home')
+@section('url',url()->current())
 
 @section('content')
     <!--start to page content-->

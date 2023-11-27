@@ -1,6 +1,7 @@
 @extends('site.layouts.app')
 
 @section('title', $title['name'])
+@section('url',url()->current())
 
 @section('content')
 

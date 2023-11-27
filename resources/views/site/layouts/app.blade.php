@@ -1,10 +1,24 @@
 <!doctype html>
-<html lang="en" class="light-theme">
+{{-- <html lang="en" class="light-theme"> --}}
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Synrok - Mobile HTML Template</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@yield('title')">
+    <meta property="og:image" content="@yield('image')">
+    <meta name="title" content="@yield('title')">
+    <meta name="url" content="@yield('url')">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{config('app.name')}} - @yield('title')</title>
+
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon/favicon-16x16.png') }}">
 
     <!-- Plugins -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/metismenu/metisMenu.min.css') }}" />
@@ -26,8 +40,8 @@
     https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css
     " rel="stylesheet">
     <script src="
-    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js
-    "></script>
+        https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js
+        "></script>
 </head>
 
 <body>
@@ -51,31 +65,34 @@
             <nav class="navbar navbar-expand w-100 p-0 gap-3 align-items-center">
                 {{-- <div class="nav-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidenav"><a
                         href="javascript:;"><i class="bi bi-list"></i></a></div> --}}
-                        @if (Route::currentRouteName() !== 'home')
-                        <div class="nav-button"><a onclick="history.go(-1)" href="#"><i class="bi bi-arrow-left"></i></a></div>
-                        @endif
+                @if (Route::currentRouteName() !== 'home')
+                    <div class="nav-button"><a onclick="history.go(-1)" href="#"><i
+                                class="bi bi-arrow-left"></i></a></div>
+                @endif
 
                 <div class="brand-logo"><a href="#">
                         {{-- <img src="assets/images/logo.webp" width="95"
                             alt=""></a> --}}
                         <h4>
                             @if (Route::currentRouteName() === 'home')
-                          <img src="{{asset('assets/images/logo/logo_zoolouk/logo_transparent_noir.png')}}" width="50%" class=" pt-2" alt="" >
+                                <img src="{{ asset('assets/images/logo/logo_zoolouk/logo_transparent_noir.png') }}"
+                                    width="50%" class=" pt-2" alt="">
                             @else
-                            @yield('title')
+                                @yield('title')
                             @endif
-                            
-                        
+
+
                         </h4>
                 </div>
 
 
-                
-                <form class="searchbar" method="GET" action="{{route('search')}}">
+
+                <form class="searchbar" method="GET" action="{{ route('search') }}">
                     @csrf
                     <div class="position-absolute top-50 translate-middle-y search-icon start-0"><i
                             class="bi bi-search text-black"></i></div>
-                    <input class="form-control px-5 bg-white" type="text" name="search" placeholder="Rechercher un produit">
+                    <input class="form-control px-5 bg-white" type="text" name="search"
+                        placeholder="Rechercher un produit">
                     <div class="position-absolute top-50 translate-middle-y end-0 search-close-icon"><i
                             class="bi bi-x-lg text-black"></i></div>
                 </form>
@@ -87,7 +104,7 @@
                         <a class="nav-link" href="wishlist.html"><i class="bi bi-heart"></i></a>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link position-relative" href="{{route('cart')}}">
+                        <a class="nav-link position-relative" href="{{ route('cart') }}">
                             <div class="cart-badge">{{ count((array) session('cart')) }}</div>
                             <i class="bi bi-bag"></i>
                         </a>
@@ -105,39 +122,40 @@
 
 
         {{-- @if (Route::currentRouteName() !== 'product-detail') --}}
-            <!--start to footer-->
-            <footer class="page-footer fixed-bottom border-top d-flex align-items-center">
-                <nav class="navbar navbar-expand p-0 flex-grow-1">
-                    <div class="navbar-nav align-items-center justify-content-between w-100">
-                        <a class="nav-link" href="{{route('home')}}">
-                            <div class="d-flex flex-column align-items-center">
-                                <div class="icon"><i class="bi bi-house-fill"></i></div>
-                                <div class="name">Accueil</div>
-                            </div>
-                        </a>
-                        <a class="nav-link" href="{{route('category-list')}}">
-                            <div class="d-flex flex-column align-items-center">
-                                <div class="icon"><i class="bi bi-grid"></i></div>
-                                <div class="name">Categories</div>
-                            </div>
-                        </a>
-                        <a class="nav-link" href="{{route('my-account')}}">
-                            <div class="d-flex flex-column align-items-center">
-                                <div class="icon"><i class="{{Auth::user() ? 'bi bi-person-check' : 'bi bi-person'}}"></i></div>
-                                <div class="name">Mon compte</div>
-                            </div>
-                        </a>
-                        <a class="nav-link" href="{{route('help-index')}}">
-                            <div class="d-flex flex-column align-items-center">
-                                <div class="icon"><i class="bi bi-question-circle"></i></div>
-                                <div class="name">Aide</div>
-                            </div>
-                        </a>
+        <!--start to footer-->
+        <footer class="page-footer fixed-bottom border-top d-flex align-items-center">
+            <nav class="navbar navbar-expand p-0 flex-grow-1">
+                <div class="navbar-nav align-items-center justify-content-between w-100">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon"><i class="bi bi-house-fill"></i></div>
+                            <div class="name">Accueil</div>
+                        </div>
+                    </a>
+                    <a class="nav-link" href="{{ route('category-list') }}">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon"><i class="bi bi-grid"></i></div>
+                            <div class="name">Categories</div>
+                        </div>
+                    </a>
+                    <a class="nav-link" href="{{ route('my-account') }}">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon"><i
+                                    class="{{ Auth::user() ? 'bi bi-person-check' : 'bi bi-person' }}"></i></div>
+                            <div class="name">Mon compte</div>
+                        </div>
+                    </a>
+                    <a class="nav-link" href="{{ route('help-index') }}">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon"><i class="bi bi-question-circle"></i></div>
+                            <div class="name">Aide</div>
+                        </div>
+                    </a>
 
-                    </div>
-                </nav>
-            </footer>
-            <!--end to footer-->
+                </div>
+            </nav>
+        </footer>
+        <!--end to footer-->
         {{-- @endif --}}
 
 
@@ -279,9 +297,9 @@
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="{{ asset('assets/js/loader.js') }}"></script>
     <script src="{{ asset('assets/js/product-details.js') }}"></script>
-    <script src="{{asset('assets/js/show-hide-password.js')}}"></script>
+    <script src="{{ asset('assets/js/show-hide-password.js') }}"></script>
 
-@yield('js')
+    @yield('js')
 
 
 </body>

@@ -1,6 +1,7 @@
 @extends('site.layouts.app')
 
 @section('title', request('search') ? request('search') : $title_name)
+@section('url',url()->current())
 
 @section('content')
 
@@ -26,7 +27,7 @@
                 ? $category->getFirstMediaUrl('category_banner')
                 : (request('subcategory')
                     ? $title->category->getFirstMediaUrl('category_banner')
-                    : asset('assets/images/page-banner/04.png')) }}"
+                    : asset('assets/images/site_images/category_banner_default.jpg')) }}"
                 class="img-fluid rounded-0" alt="...">
         </div>
 
