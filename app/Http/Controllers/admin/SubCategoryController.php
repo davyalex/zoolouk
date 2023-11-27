@@ -73,7 +73,7 @@ class SubCategoryController extends Controller
     public function edit(string $id)
     {
         //
-        $subCategory = SubCategory::find($id)->first();
+        $subCategory = SubCategory::whereId($id)->first();
 
         return view('admin.pages.subCategory.edit', compact('subCategory'));
     }

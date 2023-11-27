@@ -67,7 +67,7 @@
                     <label class="col-sm-3 col-form-label">category
                         image</label>
                     <div class="col-sm-9">
-                        <img id="_blah" src=" {{ $subCategory->getFirstMediaUrl('subcategory_image') }}" alt="{{$category->getFirstMediaUrl('category_image')}}" />
+                        <img id="_blah" src=" {{ $subCategory->getFirstMediaUrl('subcategory_image') }}" alt="{{$category->getFirstMediaUrl('subcategory_image')}}" />
                         <input type="file" name="subcat_image" class="form-control" onchange="_readURL(this);">
                     </div>
                 </div>
