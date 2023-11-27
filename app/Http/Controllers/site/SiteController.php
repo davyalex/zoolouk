@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\site;
 
+use Exception;
 use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Category;
@@ -64,17 +65,23 @@ class SiteController extends Controller
     /**********Get detail of product */
     public function product_detail(string $id)
     {
-        $product = Product::whereId($id)
+        try {
+            $product = Product::whereId($id)
             ->with(['categories', 'collection', 'tailles', 'pointures', 'media'])
             ->firstOrFail();
 
         return view('site.pages.product-detail', compact('product'));
+        } catch (Exception $error) {
+            return redirect()->action([SiteController::class, 'shop']);
+        }
+       
     }
 
     /********** Get shop List of category  */
     public function shop(Request $request)
     {
-        $category = request('category');
+        try {
+            $category = request('category');
         $subcategory = request('subcategory');
         $collection = request('collection');
 
@@ -123,6 +130,11 @@ class SiteController extends Controller
         }
 
         return view('site.pages.shop', compact('product', 'category', 'title', 'title_name'));
+        } catch (Exception $error) {
+          return redirect()->action([SiteController::class, 'shop']);
+
+        }
+     
     }
 
 
