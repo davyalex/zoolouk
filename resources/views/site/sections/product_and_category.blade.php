@@ -33,7 +33,7 @@
     <div class="sales-category-wrapper">
         <div class="section-cat">
             {{-- category  or section --}}
-            <h4 class="my-2 text-center fw-bold section-title ">{{ $item['name'] }} 
+            <h4 class="my-2 text-center fw-bold section-title " style="text-transform:uppercase">{{ $item['name'] }} 
                 <a href="/shop?category={{$item['id']}}" class="text-white">
                     <i class="py-1" style="float:right; font-size:13px">VOIR TOUT <i class="bi bi-chevron-right"></i> </i>
 
