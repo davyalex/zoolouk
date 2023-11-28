@@ -10,9 +10,9 @@
                         <div class="card-header">
                             <h4>Utilisateurs</h4>
                             <div class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Ajouter un
+                                <a href="{{route('user.register')}}" class="btn btn-primary">Ajouter un
                                     utilsateur</a>
-                                <div class="dropdown-menu">
+                                {{-- <div class="dropdown-menu">
                                     <a href="{{ route('user.register') }}" class="dropdown-item has-icon"><i
                                             class="fas fa-users"></i>
                                         Gestionnaires</a>
@@ -22,7 +22,7 @@
 
 
 
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="card-body">

@@ -88,7 +88,7 @@
                                 </div>
 
                                 {{-- auth fornisseur / vendeur --}}
-                                    @if (request('u'))
+                                    {{-- @if (request('u')) --}}
                                         
                                     <div class="row">
                                         <div class="form-group col-6">
@@ -106,7 +106,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @endif
+                                    {{-- @endif --}}
                                 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-lg btn-block">
