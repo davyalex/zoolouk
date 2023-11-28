@@ -166,7 +166,7 @@ class CartController extends Controller
                     'status' => 'attente',         // livré, en attente
                     // 'available_product' =>  '' //disponibilite
                     'payment method' => 'paiement à la livraison',
-                    // 'created_at' =>Carbon::now()->format('Y-m-d')
+                    'date_order' =>Carbon::now()->format('Y-m-d')
 
 
                 ]);

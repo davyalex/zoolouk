@@ -16,22 +16,22 @@ class AccountController extends Controller
     public function account()
     {
         if (Auth::check()) {
-//statistic of vendor 
-$orders = Order::withWhereHas(
-    'products',
-    fn ($q) => $q->with('media')->where('user_id', Auth::user()->id)
-)
-->orderBy('created_at', 'DESC')->get();
+            //statistic of vendor 
+            $orders = Order::withWhereHas(
+                'products',
+                fn ($q) => $q->with('media')->where('user_id', Auth::user()->id)
+            )
+                ->orderBy('created_at', 'DESC')->get();
 
-$orders_attente = Order::withWhereHas(
-    'products',
-    fn ($q) => $q->with('media')->where('user_id', Auth::user()->id)
-                                ->where('available',null)
-)
-->orderBy('created_at', 'DESC')->count();
+            $orders_attente = Order::withWhereHas(
+                'products',
+                fn ($q) => $q->with('media')->where('user_id', Auth::user()->id)
+                    ->where('available', null)
+            )
+                ->orderBy('created_at', 'DESC')->count();
 
 
-            return view('site.pages.user-account.dashboard',compact('orders','orders_attente'));
+            return view('site.pages.user-account.dashboard', compact('orders', 'orders_attente'));
         } else {
             return redirect()->route('login-form');
         }
@@ -48,10 +48,10 @@ $orders_attente = Order::withWhereHas(
         } elseif (request()->method() == 'POST') {
             // dd($request);
             $url = $request['url_previous'];
-            
+
             $new_password = '';
             if ($request->has('password')) {
-               $new_password = $request['password'];
+                $new_password = $request['password'];
             }
 
             $user = User::whereId($id)->update([
@@ -61,7 +61,7 @@ $orders_attente = Order::withWhereHas(
                 'shop_name' => $request['shop_name'],
                 'localisation' => $request['localisation'],
                 'password' => Hash::make($new_password),
-                
+
 
 
             ]);
@@ -80,6 +80,7 @@ $orders_attente = Order::withWhereHas(
                 => fn ($q) => $q->with('media')
             ])
             ->orderBy('created_at', 'DESC')->get();
+
         // dd($orders->toArray());
         return view('site.pages.user-account.order', compact('orders'));
     }
@@ -98,9 +99,4 @@ $orders_attente = Order::withWhereHas(
         // dd($orders->toArray());
         return view('site.pages.user-account.detail-order', compact('orders'));
     }
-
-
-
-
-    
 }

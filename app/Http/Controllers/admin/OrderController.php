@@ -13,7 +13,7 @@ class OrderController extends Controller
     public function getAllOrder(){
         //request('s') ## s => status
         $orders = Order::orderBy('created_at','DESC')
-        // ->when(request('d'), fn($q)=>Carbon::parse($q->created_at)->format('d'))
+        ->when(request('d'), fn($q)=>$q->where('date_order', Carbon::now()->format('Y-m-d')))
         ->when(request('s'), fn($q)=>$q->whereStatus(request('s')))
         ->get();
 

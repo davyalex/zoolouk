@@ -286,7 +286,7 @@
                                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                                         data-feather="shopping-cart"></i><span>Commandes</span></a>
                                 <ul class="dropdown-menu">
-                                    {{-- <li><a class="nav-link" href="/admin/order?d=jour">Jour</a></li> --}}
+                                    <li><a class="nav-link" href="/admin/order?d=jour">Jour</a></li>
                                     <li><a class="nav-link" href="/admin/order?s=attente">Attentes</a></li>
                                     <li><a class="nav-link" href="/admin/order?s=livrée">Livrées</a></li>
                                     <li><a class="nav-link" href="/admin/order?s=annulée">Annulées</a></li>

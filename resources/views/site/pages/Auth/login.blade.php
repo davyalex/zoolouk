@@ -119,14 +119,14 @@
                     <div class="mb-0 d-grid">
                         <button type="submit" class="btn btn-dark btn-ecomm rounded-3">Valider</button>
                     </div>
-                    <div class="separator my-4">
+                    {{-- <div class="separator my-4">
                         <div class="line"></div>
                         <p class="mb-0 fw-bold px-3">Ou</p>
                         <div class="line"></div>
-                    </div>
+                    </div> --}}
 
                 </form>
-                <div class="social-login d-flex flex-row gap-2 justify-content-center">
+                {{-- <div class="social-login d-flex flex-row gap-2 justify-content-center">
 
                     <button role="button" class="button-g">
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 262">
@@ -159,20 +159,8 @@
                         </svg>
                         Se connecter avec Facebook
                     </button>
-                    {{-- <a href="{{route('socialite.redirect','facebook')}}" class="bg-facebook">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-                    <a href="{{route('socialite.redirect','google')}}" class="bg-pinterest">
-                        <i class="bi bi-google"></i>
-                    </a> --}}
-                    {{-- <a href="{{route('socialite.redirect','linkedin')}}" class="bg-linkedin">
-                        <i class="bi bi-linkedin"></i>
-                    </a>
-                    <a href="{{route('socialite.redirect','github')}}" class="bg-dark">
-                        <i class="bi bi-github"></i>
-                    </a> --}}
 
-                </div>
+                </div> --}}
 
             </div>
             <!--start to footer-->
@@ -208,6 +196,7 @@
                 })
         })()
 
+        //redirect link button
         $('.button-g').click(function(e) {
             window.location.href = "{{ route('socialite.redirect', 'google') }}"
         });

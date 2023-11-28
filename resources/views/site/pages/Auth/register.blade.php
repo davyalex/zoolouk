@@ -5,17 +5,17 @@
 @section('content')
 
 
-<style>
-    input[type='number'] {
-    -moz-appearance:textfield;
-}
+    <style>
+        input[type='number'] {
+            -moz-appearance: textfield;
+        }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
 
-.button-g {
+        .button-g {
             max-width: 320px;
             display: flex;
             padding: 0.5rem 1.4rem;
@@ -72,14 +72,12 @@ input::-webkit-inner-spin-button {
         .button-f:hover {
             box-shadow: none;
         }
-
-
-</style>
+    </style>
 
     @guest
         <!--start to page content-->
         <div class="page-content">
-            
+
             <div class="login-body">
                 {{-- <h5 class="fw-bold">Getting Started</h5> --}}
                 @include('admin.components.validationMessage')
@@ -126,7 +124,7 @@ input::-webkit-inner-spin-button {
                         </div>
                     </div>
                     <input type="text" name="role" value="client" hidden>
-                    <input type="text" name="url_previous" value="{{url()->previous()}}" hidden>
+                    <input type="text" name="url_previous" value="{{ url()->previous() }}" hidden>
 
 
                     {{-- <div class="mb-3">
@@ -141,27 +139,15 @@ input::-webkit-inner-spin-button {
                     <div class="mb-0 d-grid">
                         <button type="submit" class="btn btn-dark btn-ecomm rounded-3">Valider</button>
                     </div>
-                    <div class="separator my-4">
+                    {{-- <div class="separator my-4">
                         <div class="line"></div>
                         <p class="mb-0 fw-bold px-3">Ou</p>
                         <div class="line"></div>
-                    </div>
-                    
-                </form>
-                <div class="social-login d-flex flex-row gap-2 justify-content-center">
-                    {{-- <a href="{{route('socialite.redirect','facebook')}}" class="bg-facebook">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-                    <a href="{{route('socialite.redirect','google')}}" class="bg-pinterest">
-                        <i class="bi bi-google"></i>
-                    </a> --}}
-                    {{-- <a href="{{route('socialite.redirect','linkedin')}}" class="bg-linkedin">
-                        <i class="bi bi-linkedin"></i>
-                    </a>
-                    <a href="{{route('socialite.redirect','github')}}" class="bg-dark">
-                        <i class="bi bi-github"></i>
-                    </a> --}}
+                    </div> --}}
 
+                </form>
+                {{-- <div class="social-login d-flex flex-row gap-2 justify-content-center">
+                   
                     <button role="button" class="button-g">
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 262">
                             <path fill="#4285F4"
@@ -195,9 +181,9 @@ input::-webkit-inner-spin-button {
 
                     </button>
                    
-                </div>
+                </div> --}}
 
-              
+
             </div>
             <p class="mb-0 rounded-0 mt-3 text-center">Vous avez déjà un compte? <a href="{{ route('login-form') }}"
                     class="text-danger">Connectez-vous
@@ -229,6 +215,8 @@ input::-webkit-inner-spin-button {
                     }, false)
                 })
         })()
+
+        //redirect link button
 
         $('.button-g').click(function(e) {
             window.location.href = "{{ route('socialite.redirect', 'google') }}"

@@ -28,6 +28,7 @@ class Order extends Model
         'payment method',
         'available_product', //disponibilite
         'user_id',
+        'date_order',
         'created_at',
         'updated_at',
     ];

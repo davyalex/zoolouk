@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('status')->nullable(); // attente", en cour ,livré
             $table->string('payment method')->nullable(); 
             $table->string('available_product')->default('yes')->nullable(); // disponibilite du produit
+            $table->date('date_order')->nullable();
             
             $table->foreignId('user_id')
             ->nullable()

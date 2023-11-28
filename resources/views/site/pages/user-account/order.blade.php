@@ -11,7 +11,7 @@
 
 
             <ul class="list-group list-group-flush rounded-0">
-                <li class="list-group-item py-3">
+                {{-- <li class="list-group-item py-3">
                     <form>
                         <div class="position-relative">
                             <input type="text" class="form-control ps-5 rounded-3" placeholder="Search Product...">
@@ -19,17 +19,18 @@
                                     class="bi bi-search ms-3"></i></span>
                         </div>
                     </form>
-                </li>
+                </li> --}}
                 @if (count($orders) > 0)
                     @foreach ($orders as $item)
                         <a href="{{ route('detail-order', $item['id']) }}">
                             <li class="list-group-item py-3">
                                 <div class="d-flex flex-row align-items-start align-items-stretch gap-3">
-
-                                    <div class="product-img">
-                                        <img src="  {{ $item['products'][0]->getFirstmediaUrl('product_image') }}"
-                                            class="rounded-3" width="100" alt="">
-                                    </div>
+                                    @foreach ($item->products as $image)
+                                        <div class="product-img">
+                                            <img src="  {{ $image->getFirstmediaUrl('product_image') }}" class="rounded-3"
+                                                width="100" alt="">
+                                        </div>
+                                    @endforeach
 
 
                                     <div class="product-info flex-grow-1">
