@@ -50,6 +50,7 @@ class SiteController extends Controller
 
     public function subCategoryList()
     {
+       try {
         $category = request('c');
         // dd($category);
 
@@ -60,6 +61,9 @@ class SiteController extends Controller
         //show title page
         $title = Category::whereId($subcategory[0]['category_id'])->first();
         return view('site.pages.subcategory-list', compact('subcategory', 'title'));
+       } catch (\Throwable $e) {
+        return redirect()->action([SiteController::class, 'categoryList']);
+       }
     }
 
     /**********Get detail of product */
@@ -67,14 +71,13 @@ class SiteController extends Controller
     {
         try {
             $product = Product::whereId($id)
-            ->with(['categories', 'collection', 'tailles', 'pointures', 'media'])
-            ->firstOrFail();
+                ->with(['categories', 'collection', 'tailles', 'pointures', 'media'])
+                ->firstOrFail();
 
-        return view('site.pages.product-detail', compact('product'));
+            return view('site.pages.product-detail', compact('product'));
         } catch (Exception $error) {
             return redirect()->action([SiteController::class, 'shop']);
         }
-       
     }
 
     /********** Get shop List of category  */
@@ -82,59 +85,53 @@ class SiteController extends Controller
     {
         try {
             $category = request('category');
-        $subcategory = request('subcategory');
-        $collection = request('collection');
+            $subcategory = request('subcategory');
+            $collection = request('collection');
 
-        if ($category) {
+            if ($category) {
 
-            $product = Product::whereHas(
-                'categories',
-                fn ($q) => $q->where('category_product.category_id', $category),
+                $product = Product::whereHas(
+                    'categories',
+                    fn ($q) => $q->where('category_product.category_id', $category),
 
-            )->with(['collection', 'media', 'categories'])
-                ->get();
+                )->with(['collection', 'media', 'categories'])
+                    ->get();
 
-            $category = Category::whereId($category)->with('media')->first();
+                $category = Category::whereId($category)->with('media')->first();
 
-            //show title page
-            $title =   $category = Category::whereId($category['id'])->with('media')->first();
-            $title_name =  $title['name'];
-        } else if ($subcategory) {
+                //show title page
+                $title =   $category = Category::whereId($category['id'])->with('media')->first();
+                $title_name =  $title['name'];
+            } else if ($subcategory) {
 
-            $product = Product::with(['collection', 'media', 'categories'])
-                ->where('sub_category_id', $subcategory)->get();
+                $product = Product::with(['collection', 'media', 'categories'])
+                    ->where('sub_category_id', $subcategory)->get();
 
-            $category = Category::whereId($category)->with('media')->first();
+                $category = Category::whereId($category)->with('media')->first();
 
-            //show title page
-            $title = SubCategory::whereId($subcategory)->first();
-            $title_name =  $title['name'];
+                //show title page
+                $title = SubCategory::whereId($subcategory)->first();
+                $title_name =  $title['name'];
+            } else if ($collection) {
 
-        } else if ($collection) {
+                $product = Product::with(['collection', 'media', 'categories'])
+                    ->where('collection_id', $collection)->get();
 
-            $product = Product::with(['collection', 'media', 'categories'])
-                ->where('collection_id', $collection)->get();
+                $category = Category::whereId($category)->with('media')->first();
 
-            $category = Category::whereId($category)->with('media')->first();
+                //show title page
+                $title = Collection::whereId($collection)->first();
+                $title_name =  $title['name'];
+            } else {
+                $product = Product::all();
+                $title_name = 'Boutique';
+                $title =   $category = Category::with('media')->get()->random(1);
+            }
 
-            //show title page
-            $title = Collection::whereId($collection)->first();
-            $title_name =  $title['name'];
-        } 
-        
-        else {
-            $product = Product::all();
-            $title_name = 'Boutique';
-            $title =   $category = Category::with('media')->get()->random(1);
-
-        }
-
-        return view('site.pages.shop', compact('product', 'category', 'title', 'title_name'));
+            return view('site.pages.shop', compact('product', 'category', 'title', 'title_name'));
         } catch (Exception $error) {
-          return redirect()->action([SiteController::class, 'shop']);
-
+            return redirect()->action([SiteController::class, 'shop']);
         }
-     
     }
 
 
