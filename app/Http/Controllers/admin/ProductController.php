@@ -65,7 +65,7 @@ class ProductController extends Controller
             $userId = Auth::user()->id;
         }
 
-        $product = Product::firstOrCreate([
+        $product = Product::create([
             // 'code' => 'Z-' . $getLastId,
             'title' => $request['title'],
             'description' => $request['description'],

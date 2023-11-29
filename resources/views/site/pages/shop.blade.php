@@ -33,11 +33,11 @@
 
         <!--start produt grid-->
         <div class="product-grid">
-            <div class="row row-cols-2 row-cols-md-3 g-0">
+            <div class="row row-cols-2 row-cols-md-3 g-1">
                 @if ($product->count() > 0)
                     @foreach ($product as $item)
                         <div class="col">
-                            <div class="card rounded-0 border-0">
+                            <div class="card rounded-0 border-2">
                                 <div class="position-relative overflow-hidden  adapted-img-product">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"

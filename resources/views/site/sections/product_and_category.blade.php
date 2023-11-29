@@ -84,11 +84,11 @@
             <!--start get product in category bloc -->
         @elseif($item['type_affichage'] == 'bloc')
             <div class="product-grid">
-                <div class="row row-cols-2 row-cols-md-3 g-0">
+                <div class="row row-cols-2 row-cols-md-3 g-1">
 
                     @foreach ($item['products'] as $item)
                         <div class="col">
-                            <div class="card rounded-0 border-0">
+                            <div class="card rounded-0 border-1">
                                 <div class="position-relative overflow-hidden  adapted-img-product">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"
