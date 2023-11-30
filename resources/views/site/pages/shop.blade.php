@@ -51,7 +51,7 @@
                                             class="img-fluid rounded-0" alt="...">
                                     </a>
                                 </div>
-                                <div class="card-body" style="padding:none">
+                                <div class="card-body" style="padding:auto">
                                     <div class="hstack align-items-center justify-content-between">
                                         <h5 class="mb-0 product-short-title"
                                             style="font-family:Montserrat,sans-serif; color:#404040">
