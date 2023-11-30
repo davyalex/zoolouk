@@ -1,6 +1,6 @@
   <!--start brands slider-->
   <div class="sales-category-wrapper">
-      <h4 class="my-2 text-center fw-bold ">Nos collections</h4>
+      <h4 class="my-1 text-center fw-bold ">Nos collections</h4>
       <div class="brands-slider">
         @foreach ($collection as $item)
         <div class="card rounded-3">

@@ -25,7 +25,7 @@
    <!--end category-->
 
 
-        <div class="py-2"></div>
+        <div class=""></div>
 
         <!--start sales category section with slider-->
         @include('site.sections.product_and_category')
