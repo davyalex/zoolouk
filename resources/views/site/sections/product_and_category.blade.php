@@ -67,7 +67,7 @@
                                 class="mt-1 mb-0 product-short-name font-12 fw-bold bg-dark text-white px-2">
                                 {{ $item->collection ? ucFirst($item->collection['name']) : '' }} </p>
                             <div class="d-flex align-items-center gap-1 mt-2">
-                                <h5 class="product-price" style="font-weight:600">{{ number_format($item['price'], 0) }} Fcfa</h5>
+                                <h5 class="" style="font-weight:600">{{ number_format($item['price'], 0) }} Fcfa</h5>
                                 {{-- <div class="fw-light text-muted text-decoration-line-through">$2089</div> --}}
                                 {{-- <div class="fw-bold text-danger">(70% off)</div> --}}
                             </div>
@@ -107,7 +107,7 @@
                                         class="mt-1 mb-0 product-short-name font-12 fw-bold text-bg-dark text-white px-2">
                                         {{ $item->collection ? ucFirst($item->collection['name']) : '' }} </p>
                                     <div class="d-flex align-items-center gap-1 mt-2">
-                                        <h5 class="product-price"  style="font-weight:600">{{ number_format($item['price'], 0) }} Fcfa</h5>
+                                        <h5 class=""  style="font-weight:600">{{ number_format($item['price'], 0) }} Fcfa</h5>
                                         {{-- <div class="fw-light text-muted text-decoration-line-through">$2089</div> --}}
                                         {{-- <div class="fw-bold text-danger">(70% off)</div> --}}
                                     </div>
