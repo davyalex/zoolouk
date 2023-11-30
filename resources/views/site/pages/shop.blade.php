@@ -14,8 +14,8 @@
         } */
 
         .img-div{
-           /* max-width: 700px;
-           max-height: 700px; */
+           max-width: 700px;
+           max-height: 700px;
            /* border : 1px solid rgb(226, 212, 212) */
 
         }
