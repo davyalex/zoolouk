@@ -51,8 +51,8 @@
                                             class="img-fluid rounded-0" alt="...">
                                     </a>
                                 </div>
-                                <div class="card-body m-auto">
-                                    <div class="hstack align-items-center justify-content-between">
+                                <div class="card-body">
+                                    <div class="hstack align-items-center justify-content-between m-auto">
                                         <h5 class="mb-0 product-short-title"
                                             style="font-family:Montserrat,sans-serif; color:#404040">
                                             {{ $item['title'] ? ucFirst(Str::limit($item['title'], 17, '...')) : $item['code'] }}
