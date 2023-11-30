@@ -4,21 +4,30 @@ namespace App\Models;
 
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model implements HasMedia
 {
     use HasFactory,
 
-        InteractsWithMedia, SoftDeletes;
+        InteractsWithMedia, SoftDeletes, Sluggable;
 
         public $incrementing = false;
 
+        public function sluggable(): array
+        {
+            return [
+                'slug' => [
+                    'source' => 'title'
+                ]
+            ];
+        }
 
     protected $fillable = [
         'code',
