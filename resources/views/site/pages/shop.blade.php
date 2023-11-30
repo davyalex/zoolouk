@@ -16,7 +16,7 @@
         .img-div{
            max-width: 700px;
            max-height: 700px;
-           /* border : 1px solid rgb(226, 212, 212) */
+           border : 1px solid rgb(217, 9, 9)
 
         }
         /* .adapted-img-product img {
