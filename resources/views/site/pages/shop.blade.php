@@ -13,12 +13,12 @@
 
         } */
 
-        .img-div{
+        /* .img-div{
            max-width: 700px;
            max-height: 700px;
-           border : 1px solid rgb(217, 9, 9)
+           border : 1px solid rgb(226, 212, 212)
 
-        }
+        } */
         /* .adapted-img-product img {
             width:500px;
             height: 200px;
@@ -51,8 +51,8 @@
                                             class="img-fluid rounded-0" alt="...">
                                     </a>
                                 </div>
-                                <div class="card-body">
-                                    <div class="hstack align-items-center justify-content-between m-auto">
+                                <div class="card-body" style="padding:none">
+                                    <div class="hstack align-items-center justify-content-between">
                                         <h5 class="mb-0 product-short-title"
                                             style="font-family:Montserrat,sans-serif; color:#404040">
                                             {{ $item['title'] ? ucFirst(Str::limit($item['title'], 17, '...')) : $item['code'] }}
