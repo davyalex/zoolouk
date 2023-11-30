@@ -22,7 +22,7 @@
         .adapted-img-product img {
             width:500px;
             height: 200px;
-            object-fit: fill;
+            object-fit: contain;
 
         }
         
