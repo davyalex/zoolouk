@@ -20,14 +20,7 @@ class Product extends Model implements HasMedia
 
         public $incrementing = false;
 
-        public function sluggable(): array
-        {
-            return [
-                'slug' => [
-                    'source' => 'title'
-                ]
-            ];
-        }
+     
 
     protected $fillable = [
         'code',
@@ -49,6 +42,15 @@ class Product extends Model implements HasMedia
             $model->id = IdGenerator::generate(['table' => 'products', 'length' => 10, 'prefix' =>mt_rand()]);
             $model->code = IdGenerator::generate(['table' => 'products', 'field' => 'code', 'length' => 10, 'prefix' =>'Z-'.mt_rand()]);
         });
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 
     public function collection()
