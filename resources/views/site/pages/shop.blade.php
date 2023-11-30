@@ -14,17 +14,17 @@
         } */
 
         .img-div{
-           max-width: 700px;
-           max-height: 700px;
+           /* max-width: 700px;
+           max-height: 700px; */
            /* border : 1px solid rgb(226, 212, 212) */
 
         }
-        .adapted-img-product img {
+        /* .adapted-img-product img {
             width:500px;
             height: 200px;
             object-fit: contain;
 
-        }
+        } */
         
     </style>
     <!--start to page content-->
