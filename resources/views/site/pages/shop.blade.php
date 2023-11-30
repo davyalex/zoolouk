@@ -13,12 +13,19 @@
 
         } */
 
-        .adapted-img-product img {
-            /* width:100%; */
-            height: 142px;
-            object-fit: contain;
+        .img-div{
+           max-width: 700px;
+           max-height: 700px;
+           /* border : 1px solid rgb(226, 212, 212) */
 
         }
+        .adapted-img-product img {
+            width:500px;
+            height: 200px;
+            object-fit: fill;
+
+        }
+        
     </style>
     <!--start to page content-->
     <div class="page-content p-0">
@@ -36,7 +43,7 @@
             <div class="row row-cols-2 row-cols-md-3 g-1">
                 @if ($product->count() > 0)
                     @foreach ($product as $item)
-                        <div class="col">
+                        <div class="col img-div">
                             <div class="card rounded-0 border-2">
                                 <div class="position-relative overflow-hidden  adapted-img-product">
                                     <a href="{{ route('product-detail', $item['id']) }}">
