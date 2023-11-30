@@ -184,10 +184,10 @@
                             <div class="form-group row mb-4" id="pointureDiv">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pointure</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <select style="width: 600px" name="pointures[]" class="form-control select2 "
+                                    <select style="width: 600px" name="pointures[]" class="form-control selectric "
                                         multiple>
                                         <option disabled selected value></option>
-                                        @for ($i = 37; $i < 50; $i++)
+                                        @for ($i = 35; $i < 50; $i++)
                                             <option value="{{ $i }}"
                                                 @if ($product->pointures->contains('pointure', $i)) @selected(true) @endif>
                                                 {{ $i }} </option>
@@ -199,7 +199,7 @@
                             <div class="form-group row mb-4" id="tailleDiv">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Taille</label>
                                 <div class="col-sm-12 col-md-7">
-                                    <select name="tailles[]" style="width: 600px" class="form-control select2 "
+                                    <select name="tailles[]" style="width: 600px" class="form-control selectric "
                                         multiple>
                                         <option disabled selected value></option>
 
@@ -251,7 +251,7 @@
 @section('script')
     <script src="{{ asset('admin/assets/bundles/select2/dist/js/select2.full.min.js') }}"></script>
 
-    {{-- <script src="{{ asset('admin/assets/bundles/jquery-selectric/jquery.selectric.min.js') }}"></script> --}}
+    <script src="{{ asset('admin/assets/bundles/jquery-selectric/jquery.selectric.min.js') }}"></script>
 @endsection
 <script type="text/javascript">
     $(document).ready(function() {
