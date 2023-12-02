@@ -18,6 +18,9 @@
         } */
     }
 
+    .product-card{
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
 
     .section-title {
         background-color: #212529;
@@ -46,7 +49,7 @@
         @if ($item['type_affichage'] == 'carrousel')
             <div class="sales-accessories-slider">
                 @foreach ($item['products'] as $item)
-                <div class="card rounded-3 border-0" style="width: 100%;height:100% " >
+                <div class="card rounded-3 product-card" style="width: 100%;height:100% " >
                     <div class="position-relative overflow-hidden" style="width: 100%;height:200px ">
                             <a href="{{ route('product-detail', $item['id']) }}">
                                 <img src="{{ $item->getFirstMediaUrl('product_image') }}" class="img-fluid adapted-img"
@@ -88,7 +91,7 @@
 
                     @foreach ($item['products'] as $item)
                         <div class="col">
-                            <div class="card rounded-3 border-0" style="width: 100%;height:100% " >
+                            <div class="card rounded-3 product-card" style="width: 100%;height:100% " >
                                 <div class="position-relative overflow-hidden" style="width: 100%;height:200px ">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"
