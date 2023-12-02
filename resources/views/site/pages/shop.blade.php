@@ -1,31 +1,38 @@
 @extends('site.layouts.app')
 
 @section('title', request('search') ? request('search') : $title_name)
-@section('url',url()->current())
+@section('url', url()->current())
 
 @section('content')
 
     <style>
-        /* .adapted-img-banner img {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
+        .adapted-img {
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            /* margin-bottom: -10px; */
 
-        } */
+        }
+
+        /* .adapted-img-banner img {
+                width: 100%;
+                height: 100px;
+                object-fit: cover;
+
+            } */
 
         /* .img-div{
-           max-width: 700px;
-           max-height: 700px;
-           border : 1px solid rgb(226, 212, 212)
+               max-width: 700px;
+               max-height: 700px;
+               border : 1px solid rgb(226, 212, 212)
 
-        } */
+            } */
         /* .adapted-img-product img {
-            width:500px;
-            height: 200px;
-            object-fit: contain;
+                width:500px;
+                height: 200px;
+                object-fit: contain;
 
-        } */
-        
+            } */
     </style>
     <!--start to page content-->
     <div class="page-content p-0">
@@ -44,11 +51,11 @@
                 @if ($product->count() > 0)
                     @foreach ($product as $item)
                         <div class="col img-div">
-                            <div class="card rounded-0 border-2">
+                            <div class="card rounded-3 border-1" style="width: 100%;height:100% ">
                                 <div class="position-relative overflow-hidden  adapted-img-product">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"
-                                            class="img-fluid rounded-0" alt="...">
+                                            class="img-fluid  rounded-top-3 adapted-img" alt="...">
                                     </a>
                                 </div>
                                 <div class="card-body" style="padding:none">
