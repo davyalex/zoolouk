@@ -1,7 +1,7 @@
 <style>
     .adapted-img  {
-        width:auto;
-        height: auto;
+        width:100%;
+        height:130px;
         object-fit: contain;
         /* margin-bottom: -10px; */
 
@@ -47,7 +47,7 @@
             <div class="sales-accessories-slider">
                 @foreach ($item['products'] as $item)
                     <div class="card rounded-0 border-0">
-                        <div class="position-relative overflow-hidden adapted-img">
+                        <div class="position-relative overflow-hidden">
                             <a href="{{ route('product-detail', $item['id']) }}">
                                 <img src="{{ $item->getFirstMediaUrl('product_image') }}" class="img-fluid"
                                     alt="{{ $item->getFirstMediaUrl('product_image') }}">
@@ -89,7 +89,7 @@
                     @foreach ($item['products'] as $item)
                         <div class="col">
                             <div class="card rounded-3 border-1" style="width: 100%;height:100% " >
-                                <div class="position-relative overflow-hidden  adapted-img-product">
+                                <div class="position-relative overflow-hidden" style="width: 100%;height:150px ">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"
                                             class="img-fluid rounded-3 adapted-img" alt="...">
