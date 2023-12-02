@@ -7,32 +7,32 @@
 
     <style>
         .adapted-img {
-            width: auto;
-            height:auto;
+            width: 100%;
+            height: 200px;
             object-fit: contain;
             /* margin-bottom: -10px; */
 
         }
 
         /* .adapted-img-banner img {
-                width: 100%;
-                height: 100px;
-                object-fit: cover;
+                    width: 100%;
+                    height: 100px;
+                    object-fit: cover;
 
-            } */
+                } */
 
         /* .img-div{
-               max-width: 700px;
-               max-height: 700px;
-               border : 1px solid rgb(226, 212, 212)
+                   max-width: 700px;
+                   max-height: 700px;
+                   border : 1px solid rgb(226, 212, 212)
 
-            } */
+                } */
         /* .adapted-img-product img {
-                width:500px;
-                height: 200px;
-                object-fit: contain;
+                    width:500px;
+                    height: 200px;
+                    object-fit: contain;
 
-            } */
+                } */
     </style>
     <!--start to page content-->
     <div class="page-content p-0">
