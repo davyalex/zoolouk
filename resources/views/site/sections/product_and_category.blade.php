@@ -1,9 +1,9 @@
 <style>
-    .adapted-img img {
-        /* width:100%; */
-        height: 142px;
+    .adapted-img  {
+        width:auto;
+        height: auto;
         object-fit: contain;
-        margin-bottom: -10px;
+        /* margin-bottom: -10px; */
 
     }
 
@@ -88,11 +88,11 @@
 
                     @foreach ($item['products'] as $item)
                         <div class="col">
-                            <div class="card rounded-0 border-1">
+                            <div class="card rounded-3 border-1" style="width: 100%;height:100% " >
                                 <div class="position-relative overflow-hidden  adapted-img-product">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"
-                                            class="img-fluid rounded-0" alt="...">
+                                            class="img-fluid rounded-0 adapted-img" alt="...">
                                     </a>
                                 </div>
                                 <div class="card-body" style="padding:none">
