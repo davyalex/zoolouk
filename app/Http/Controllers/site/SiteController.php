@@ -95,7 +95,7 @@ class SiteController extends Controller
                     fn ($q) => $q->where('category_product.category_id', $category),
 
                 )->with(['collection', 'media', 'categories'])
-                    ->get();
+                    ->get()->random();
 
                 $category = Category::whereId($category)->with('media')->first();
 
@@ -105,7 +105,7 @@ class SiteController extends Controller
             } else if ($subcategory) {
 
                 $product = Product::with(['collection', 'media', 'categories'])
-                    ->where('sub_category_id', $subcategory)->get();
+                    ->where('sub_category_id', $subcategory) ->get()->random();
 
                 $category = Category::whereId($category)->with('media')->first();
 
@@ -115,7 +115,7 @@ class SiteController extends Controller
             } else if ($collection) {
 
                 $product = Product::with(['collection', 'media', 'categories'])
-                    ->where('collection_id', $collection)->get();
+                    ->where('collection_id', $collection)->get()->random();;
 
                 $category = Category::whereId($category)->with('media')->first();
 
@@ -123,7 +123,7 @@ class SiteController extends Controller
                 $title = Collection::whereId($collection)->first();
                 $title_name =  $title['name'];
             } else {
-                $product = Product::all();
+                $product = Product::get()->random();
                 $title_name = 'Boutique';
                 $title =   $category = Category::with('media')->get()->random(1);
             }
