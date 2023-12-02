@@ -2,13 +2,13 @@
     .adapted-img  {
         width:100%;
         height:auto;
-        object-fit:fill;
+        object-fit:cover;
         /* margin-bottom: -10px; */
 
     }
 
     .product-price {
-        color: ##212529;
+        color: #212529;
         font-weight: 500;
         font-size: 13px;
         font-family: Montserrat, sans-serif;
@@ -89,7 +89,7 @@
                     @foreach ($item['products'] as $item)
                         <div class="col">
                             <div class="card rounded-3 border-1" style="width: 100%;height:100% " >
-                                <div class="position-relative overflow-hidden" style="width: 100%;height:150px ">
+                                <div class="position-relative overflow-hidden" style="width: 100%;height:170px ">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"
                                             class="img-fluid rounded-3 adapted-img" alt="...">
