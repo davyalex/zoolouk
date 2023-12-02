@@ -51,7 +51,7 @@
                 @if ($product->count() > 0)
                     @foreach ($product as $item)
                         <div class="col img-div">
-                            <div class="card rounded-3 border-1" style="width: 100%;height:100% ">
+                            <div class="card rounded-3 border-1 border border-white" style="width: 100%;height:100% ">
                                 <div class="position-relative overflow-hidden  adapted-img-product">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"

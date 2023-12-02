@@ -88,7 +88,7 @@
 
                     @foreach ($item['products'] as $item)
                         <div class="col">
-                            <div class="card rounded-3 border-1" style="width: 100%;height:100% " >
+                            <div class="card rounded-3 border-1 border border-white" style="width: 100%;height:100% " >
                                 <div class="position-relative overflow-hidden" style="width: 100%;height:200px ">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"
