@@ -29,7 +29,7 @@ class SiteController extends Controller
 
         //category with product
         $category_with_product = Category::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('type', 'DESC')->get();
+        $q->with('media'))->orderBy('type', 'DESC') ->inRandomOrder()->get();
 
         return view('site.home', compact('category', 'category_with_product', 'collection', 'slider_banniere'));
     }
