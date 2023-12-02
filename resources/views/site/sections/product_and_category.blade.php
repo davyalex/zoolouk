@@ -2,7 +2,7 @@
     .adapted-img  {
         width:100%;
         height:auto;
-        object-fit:cover;
+        object-fit:contain;
         /* margin-bottom: -10px; */
 
     }
