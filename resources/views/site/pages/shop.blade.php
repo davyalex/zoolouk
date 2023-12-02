@@ -8,7 +8,7 @@
     <style>
         .adapted-img {
             width: auto;
-            height:130px;
+            height:auto;
             object-fit: contain;
             /* margin-bottom: -10px; */
 

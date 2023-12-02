@@ -1,7 +1,7 @@
 <style>
     .adapted-img  {
         width:100%;
-        height:130px;
+        height:auto;
         object-fit:fill;
         /* margin-bottom: -10px; */
 
