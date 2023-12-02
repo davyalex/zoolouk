@@ -71,7 +71,7 @@ a {
 .page-content {
     margin-top: 60px;
     margin-bottom: 60px;
-    /* padding: 1rem; */
+    padding: 0.5rem;
 }
 
 .top-header .navbar .nav-button a{
