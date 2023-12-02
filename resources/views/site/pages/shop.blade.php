@@ -9,7 +9,7 @@
         .adapted-img {
             width: auto;
             height:130px;
-            object-fit: fill;
+            object-fit: cover;
             /* margin-bottom: -10px; */
 
         }
@@ -52,7 +52,7 @@
                     @foreach ($product as $item)
                         <div class="col img-div">
                             <div class="card rounded-3 border-1" style="width: 100%;height:100% ">
-                                <div class="position-relative overflow-hidden" style="width: 100%;height:150px ">
+                                <div class="position-relative overflow-hidden" style="width: 100%;height:300px ">
                                     <a href="{{ route('product-detail', $item['id']) }}">
                                         <img src="{{ $item->getFirstMediaUrl('product_image') }}"
                                             class="img-fluid  rounded-top-3 adapted-img" alt="...">
