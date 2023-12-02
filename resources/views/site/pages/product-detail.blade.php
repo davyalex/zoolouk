@@ -10,7 +10,7 @@
     <style>
         .adapted-img img {
             width: 100%;
-            height: 225px;
+            height: auto;
             object-fit: contain;
 
         }
