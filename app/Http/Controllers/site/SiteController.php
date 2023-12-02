@@ -115,7 +115,7 @@ class SiteController extends Controller
             } else if ($collection) {
 
                 $product = Product::with(['collection', 'media', 'categories'])
-                    ->where('collection_id', $collection)->get()->random();;
+                    ->where('collection_id', $collection)->get()->random();
 
                 $category = Category::whereId($category)->with('media')->first();
 
