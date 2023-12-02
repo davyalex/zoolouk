@@ -9,7 +9,7 @@
         .adapted-img {
             width: auto;
             height:130px;
-            object-fit: contain;
+            object-fit: fill;
             /* margin-bottom: -10px; */
 
         }
