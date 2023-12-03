@@ -7,7 +7,7 @@
     } */
 </style>
 
-<div class="category bg-white">
+<div class="category">
     <div class=" row align-items-center ">
 
         @foreach ($subcategory as $item)

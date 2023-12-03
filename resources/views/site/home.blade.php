@@ -27,6 +27,8 @@
    @include('site.sections.subcategory')
    <!--end subcategory-->
 
+   <div class="mb-2"></div>
+
      <!--start subcategory and product-->
      @include('site.sections.product_and_subcategory')
      <!--end subcategory and product-->

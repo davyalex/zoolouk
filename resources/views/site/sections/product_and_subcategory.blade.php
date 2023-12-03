@@ -38,7 +38,7 @@
             {{-- category  or section --}}
             <h6 class="my-2 text-center fw-bold section-title " style="text-transform:uppercase">{{ $item['name'] }} 
                 <a href="/shop?category={{$item['id']}}" class="text-white">
-                    <i class="py-1" style="float:right; font-size:11px">VOIR TOUT <i class="bi bi-chevron-right"></i> </i>
+                    <i class="py-1" style="float:right; font-size:11px">Voir tout <i class="bi bi-chevron-right"></i> </i>
 
                 </a>
             </h6>
