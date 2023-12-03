@@ -11,8 +11,11 @@
         @include('site.sections.slider')
         <!--end banner slider-->
 
-        {{-- <div class="py-1"></div> --}}
-
+        
+        <div class="p-0"></div>
+<!--start collection-->
+@include('site.sections.collection')
+<!--end collection-->
 
 
         {{-- <div class="py-1"></div> --}}

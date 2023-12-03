@@ -3,9 +3,12 @@
       <h4 class="my-1 text-center fw-bold ">Nos collections</h4>
       <div class="brands-slider">
         @foreach ($collection as $item)
-        <div class="card rounded-3">
-            <div class="card-body">
-                <a href="/shop?collection={{$item['id']}}"><img src="{{ $item->getFirstMediaUrl('collection_image') }}" class="img-fluid" alt="{{$item['name']}}"></a>
+        <div class="card">
+            <div class="card-body ">
+                <a href="/shop?collection={{$item['id']}}">
+                    <h4 class="text-center text-capitalize text-white bg-dark rounded-2 py-2">{{$item['name']}} </h4>
+                    {{-- <img src="{{ $item->getFirstMediaUrl('collection_image') }}" class="img-fluid" alt="{{$item['name']}}"> --}}
+                </a>
             </div>
         </div>
         @endforeach
