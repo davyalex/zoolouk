@@ -13,7 +13,7 @@
         @foreach ($subcategory as $item)
             <div class="category-img col-4">
                 <figure class="text-center">
-                    <a href="/subcategory?c={{ $item['id'] }}">
+                    <a href="/shop?subcategory={{$item['id']}}">
      
         <img src="{{ $item->getFirstMediaUrl('subcategory_image') }}" class="img-fluid rounded  adapted-image"
             alt="{{ $item->getFirstMediaUrl('subcategory_image') }}">
