@@ -18,7 +18,7 @@
         <img src="{{ $item->getFirstMediaUrl('subcategory_image') }}" class="img-fluid rounded  adapted-image"
             alt="{{ $item->getFirstMediaUrl('subcategory_image') }}">
         </a>
-        <figcaption>{{ $item['name'] }}</figcaption>
+        {{-- <figcaption>{{ $item['name'] }}</figcaption> --}}
         </figure>
     </div>
     @endforeach
