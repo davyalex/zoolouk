@@ -119,14 +119,14 @@
                     <div class="mb-0 d-grid">
                         <button type="submit" class="btn btn-dark btn-ecomm rounded-3">Valider</button>
                     </div>
-                    {{-- <div class="separator my-4">
+                    <div class="separator my-4">
                         <div class="line"></div>
                         <p class="mb-0 fw-bold px-3">Ou</p>
                         <div class="line"></div>
-                    </div> --}}
+                    </div>
 
                 </form>
-                {{-- <div class="social-login d-flex flex-row gap-2 justify-content-center">
+                <div class="social-login d-flex flex-row gap-2 justify-content-center">
 
                     <button role="button" class="button-g">
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 262">
@@ -160,7 +160,7 @@
                         Se connecter avec Facebook
                     </button>
 
-                </div> --}}
+                </div>
 
             </div>
             <!--start to footer-->
