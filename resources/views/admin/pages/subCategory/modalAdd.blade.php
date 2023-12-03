@@ -91,6 +91,22 @@
                       </div>
 
                       <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Type d'affichage</label>
+                        <div class="col-sm-9">
+                            <select name="type_affichage" class="form-control selectric " required>
+                                <option disabled selected value>Choisir un type d'affichage</option>
+                                <option value="bloc">bloc</option>
+                                <option value="carrousel">carrousel</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Champ obligatoire
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                      <div class="form-group row">
                           <label class="col-sm-3 col-form-label">category image (551 * 551) </label>
                           <div class="col-sm-9">
                               <img id="img-preview"

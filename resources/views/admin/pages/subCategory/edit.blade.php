@@ -36,13 +36,27 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Type</label>
+                    <label class="col-sm-3 col-form-label">Categorie parent</label>
                     <div class="col-sm-9">
                         <select name="category" class="form-control selectric " required>
                             <option disabled selected value>Choisir une categorie</option>
                           @foreach($categories as $category)
                           <option value="{{$category->id}}" {{$category['id']==$subCategory['category_id'] ? 'selected' : ''}}>{{$category->name}}</option>
                           @endforeach
+                        </select>
+                        <div class="invalid-feedback">
+                            Champ obligatoire
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Type d'affichage</label>
+                    <div class="col-sm-9">
+                        <select name="type_affichage" class="form-control selectric " required>
+                            <option disabled selected value>Choisir un type d'affichage</option>
+                            <option value="bloc" {{$subCategory['type_affichage']=='bloc' ? 'selected' : ''}}>Bloc</option>
+                            <option value="carrousel"  {{$subCategory['type_affichage']=='carrousel' ? 'selected' : ''}}>Carrousel</option>
                         </select>
                         <div class="invalid-feedback">
                             Champ obligatoire

@@ -20,6 +20,10 @@ class SiteController extends Controller
         //category list
         $category = Category::with('media')->get();
 
+        //subcat list
+        $subcategory = SubCategory::withWhereHas('products', fn ($q) =>
+        $q->with('media'))->orderBy('name', 'DESC')->get();
+
         //collection List
         $collection = Collection::with('media')->get();
 
@@ -31,7 +35,13 @@ class SiteController extends Controller
         $category_with_product = Category::withWhereHas('products', fn ($q) =>
         $q->with('media'))->orderBy('type', 'DESC') ->inRandomOrder()->get();
 
-        return view('site.home', compact('category', 'category_with_product', 'collection', 'slider_banniere'));
+        
+        //subcategory with product
+        $subcategory_with_product = SubCategory::withWhereHas('products', fn ($q) =>
+        $q->with('media'))->orderBy('created_at', 'DESC') ->inRandomOrder()->get();
+        // dd($subcategory_with_product->toArray());
+
+        return view('site.home', compact('category', 'subcategory', 'category_with_product', 'collection', 'slider_banniere','subcategory_with_product'));
     }
 
 

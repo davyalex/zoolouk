@@ -20,6 +20,8 @@ class SubCategory extends Model implements HasMedia
     protected $fillable = [
         'name',
         'category_id',
+        // 'display_on_category', // afficher dans la zone de category
+        'type_affichage',
         'created_at',
         'updated_at'
     ];

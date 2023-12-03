@@ -13,9 +13,7 @@
 
         {{-- <div class="py-1"></div> --}}
 
-          <!--start collection-->
-          @include('site.sections.collection')
-          <!--end collection-->
+       
      
         {{-- <div class="py-1"></div> --}}
 
@@ -25,11 +23,23 @@
    <!--end category-->
 
 
+    <!--start subcategory-->
+   @include('site.sections.subcategory')
+   <!--end subcategory-->
+
+     <!--start subcategory and product-->
+     @include('site.sections.product_and_subcategory')
+     <!--end subcategory and product-->
+
         <div class=""></div>
 
-        <!--start sales category section with slider-->
+        <!--start category and product-->
         @include('site.sections.product_and_category')
-        <!--end sales section with slider-->
+        <!--end category and product-->
+
+           <!--start collection-->
+           @include('site.sections.collection')
+           <!--end collection-->
 
 
         <!--start features-->

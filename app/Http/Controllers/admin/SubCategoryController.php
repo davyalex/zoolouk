@@ -35,12 +35,16 @@ class SubCategoryController extends Controller
         //
         $request->validate([
             'name' => ['required'],
-            'category' => ['required']
+            'category' => ['required'],
+            // 'type_affichage' => ['required']
+
         ]);
 
         $subcategory = SubCategory::firstOrCreate([
             'name' => $request['name'],
             'category_id' => $request['category'],
+            'type_affichage' => $request['type_affichage'],
+
         ]);
 
         //upload category_image
@@ -87,6 +91,7 @@ class SubCategoryController extends Controller
         $subcategory = tap(SubCategory::find($id))->update([
             'name' => $request['name'],
             'category_id' => $request['category'],
+            'type_affichage' => $request['type_affichage'],
         ]);
 
         //upload category_image
