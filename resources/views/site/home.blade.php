@@ -1,7 +1,7 @@
 @extends('site.layouts.app')
 
 @section('title', 'Home')
-@section('url',url()->current())
+@section('url', url()->current())
 
 @section('content')
     <!--start to page content-->
@@ -13,25 +13,25 @@
 
         {{-- <div class="py-1"></div> --}}
 
-       
-     
+
+
         {{-- <div class="py-1"></div> --}}
 
-      
-   <!--start category-->
-   {{-- @include('site.sections.category') --}}
-   <!--end category-->
+
+        <!--start category-->
+        {{-- @include('site.sections.category') --}}
+        <!--end category-->
 
 
-    <!--start subcategory-->
-   @include('site.sections.subcategory')
-   <!--end subcategory-->
+        <!--start subcategory-->
+        @include('site.sections.subcategory')
+        <!--end subcategory-->
 
-   <div class="pb-2"></div>
+        <div class="pb-2"></div>
 
-     <!--start subcategory and product-->
-     @include('site.sections.product_and_subcategory')
-     <!--end subcategory and product-->
+        <!--start subcategory and product-->
+        @include('site.sections.product_and_subcategory')
+        <!--end subcategory and product-->
 
         <div class=""></div>
 
@@ -39,9 +39,11 @@
         @include('site.sections.product_and_category')
         <!--end category and product-->
 
-           <!--start collection-->
-           @include('site.sections.collection')
-           <!--end collection-->
+        <div class="py-2"></div>
+
+        <!--start collection-->
+        @include('site.sections.collection')
+        <!--end collection-->
 
 
         <!--start features-->

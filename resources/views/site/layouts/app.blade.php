@@ -58,7 +58,7 @@
     <!--end loader-->
 
     <!--start wrapper-->
-    <div class="wrapper">
+    <div class="wrapper bg-white">
 
         <!--start to header-->
         <header class="top-header fixed-top border-bottom d-flex align-items-center">
