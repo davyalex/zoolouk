@@ -66,7 +66,7 @@
                 {{-- <div class="nav-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidenav"><a
                         href="javascript:;"><i class="bi bi-list"></i></a></div> --}}
                 @if (Route::currentRouteName() !== 'home')
-                    <div class="nav-button"><a onclick="history.go(-1)" href="#"><i
+                    <div class="nav-button"><a href="{{ url()->previous() }}"><i
                                 class="bi bi-arrow-left"></i></a></div>
                 @endif
 

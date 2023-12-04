@@ -91,6 +91,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/product-detail/{id}', 'product_detail')->name('product-detail');
     Route::get('/shop', 'shop')->name('shop');  //with parametre category ID
     Route::get('product/q', 'searchProduct')->name('search');
+
 });
 
 

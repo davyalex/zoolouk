@@ -43,6 +43,10 @@ class SiteController extends Controller
 
         return view('site.home', compact('category', 'subcategory', 'category_with_product', 'collection', 'slider_banniere','subcategory_with_product'));
     }
+//return previous page
+    public function back(){
+        dd(url()->previous());
+    }
 
 
     /*********Get List category */
