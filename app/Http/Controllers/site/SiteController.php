@@ -33,17 +33,16 @@ class SiteController extends Controller
 
         //category with product
         $category_with_product = Category::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('type', 'DESC') ->inRandomOrder()->get();
+        $q->with('media'))->orderBy('type', 'DESC')->inRandomOrder()->get();
 
-        // dd( $category_with_product[1]->products->take(1)->toArray());
         //subcategory with product
         $subcategory_with_product = SubCategory::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('name', 'ASC') ->inRandomOrder()->get();
+        $q->with('media'))->orderBy('name', 'ASC')->inRandomOrder()->get();
         // dd($subcategory_with_product->toArray());
 
-        return view('site.home', compact('category', 'subcategory', 'category_with_product', 'collection', 'slider_banniere','subcategory_with_product'));
+        return view('site.home', compact('category', 'subcategory', 'category_with_product', 'collection', 'slider_banniere', 'subcategory_with_product'));
     }
-//return previous page
+    //return previous page
     // public function back(){
     //     dd(url()->previous());
     // }
@@ -64,20 +63,20 @@ class SiteController extends Controller
 
     public function subCategoryList()
     {
-       try {
-        $category = request('c');
-        // dd($category);
+        try {
+            $category = request('c');
+            // dd($category);
 
-        $subcategory = SubCategory::with('media')
-            ->where('category_id', $category)
-            ->orderBy('name', 'ASC')->get();
+            $subcategory = SubCategory::with('media')
+                ->where('category_id', $category)
+                ->orderBy('name', 'ASC')->get();
 
-        //show title page
-        $title = Category::whereId($subcategory[0]['category_id'])->first();
-        return view('site.pages.subcategory-list', compact('subcategory', 'title'));
-       } catch (\Throwable $e) {
-        return redirect()->action([SiteController::class, 'categoryList']);
-       }
+            //show title page
+            $title = Category::whereId($subcategory[0]['category_id'])->first();
+            return view('site.pages.subcategory-list', compact('subcategory', 'title'));
+        } catch (\Throwable $e) {
+            return redirect()->action([SiteController::class, 'categoryList']);
+        }
     }
 
     /**********Get detail of product */
@@ -109,35 +108,35 @@ class SiteController extends Controller
                     fn ($q) => $q->where('category_product.category_id', $category),
 
                 )->with(['collection', 'media', 'categories'])
-                    ->inRandomOrder()->get();
+                    ->inRandomOrder()->paginate(1);
 
-                $category = Category::whereId($category)->with('media')->first();
 
                 //show title page
+                $category = Category::whereId($category)->with('media')->first();
                 $title =   $category = Category::whereId($category['id'])->with('media')->first();
                 $title_name =  $title['name'];
             } else if ($subcategory) {
 
                 $product = Product::with(['collection', 'media', 'categories'])
-                    ->where('sub_category_id', $subcategory)->inRandomOrder()->get();
+                    ->where('sub_category_id', $subcategory)->inRandomOrder()->paginate(1);
 
-                $category = Category::whereId($category)->with('media')->first();
 
                 //show title page
+                $category = Category::whereId($category)->with('media')->first();
                 $title = SubCategory::whereId($subcategory)->first();
                 $title_name =  $title['name'];
             } else if ($collection) {
 
                 $product = Product::with(['collection', 'media', 'categories'])
-                    ->where('collection_id', $collection)->inRandomOrder()->get();
+                    ->where('collection_id', $collection)->inRandomOrder()->paginate(1);
 
-                $category = Category::whereId($category)->with('media')->first();
 
                 //show title page
+                $category = Category::whereId($category)->with('media')->first();
                 $title = Collection::whereId($collection)->first();
                 $title_name =  $title['name'];
             } else {
-                $product = Product::inRandomOrder()->get();
+                $product = Product::inRandomOrder()->paginate(1);
                 $title_name = 'Boutique';
                 $title =   $category = Category::with('media')->get()->random(1);
             }

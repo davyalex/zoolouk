@@ -92,7 +92,10 @@
             </div><!--end row-->
         </div>
         <!--end produt grid-->
+        <div class="pro-pagination">
+            {!! $product->appends(request()->query())->links('pagination::custom') !!}
 
+        </div>
     </div>
     <!--end to page content-->
 @endsection
