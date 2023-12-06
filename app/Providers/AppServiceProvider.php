@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Collection;
 use App\Models\SubCategory;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\View;
@@ -34,16 +35,21 @@ class AppServiceProvider extends ServiceProvider
         ->whereType('section')
         ->get();
         
+        $collection = Collection::with('media')->orderBy('name')->get();
+
+        
         $roles = Role::get();
 
 
 
-        View::composer('*', function($view) use($category, $subcategory,$section_categories,$roles) {
+        View::composer('*', function($view) use($category,$collection, $subcategory,$section_categories,$roles) {
             $view->with([
                 'categories' => $category,
                 'subcategories' => $subcategory,
                 'section_categories' =>$section_categories,
                 'roles' => $roles,
+                'collection' => $collection,
+
 
         ]);
         });

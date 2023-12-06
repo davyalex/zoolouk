@@ -99,6 +99,9 @@
             @endif
 
         </div>
+        <div class="py-2"></div>
+        <!--start collection-->
+        @include('site.sections.collection')
     </div>
     <!--end to page content-->
 @endsection

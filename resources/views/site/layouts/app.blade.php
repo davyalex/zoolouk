@@ -120,6 +120,8 @@
 
 
 
+      
+        <!--end collection-->
 
         {{-- @if (Route::currentRouteName() !== 'product-detail') --}}
         <!--start to footer-->

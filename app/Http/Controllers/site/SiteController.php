@@ -25,7 +25,7 @@ class SiteController extends Controller
         $q->with('media'))->orderBy('name', 'DESC')->get();
 
         //collection List
-        $collection = Collection::with('media')->get();
+        $collection = Collection::with('media')->orderBy('name')->get();
 
         //slider type==banniere
         $slider_banniere = Slider::whereType('banniere')->orderBy('created_at', 'DESC')->get();
