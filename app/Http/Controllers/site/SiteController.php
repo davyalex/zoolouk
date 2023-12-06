@@ -108,7 +108,7 @@ class SiteController extends Controller
                     fn ($q) => $q->where('category_product.category_id', $category),
 
                 )->with(['collection', 'media', 'categories'])
-                    ->inRandomOrder()->paginate(1);
+                    ->inRandomOrder()->paginate(20);
 
 
                 //show title page
@@ -118,7 +118,7 @@ class SiteController extends Controller
             } else if ($subcategory) {
 
                 $product = Product::with(['collection', 'media', 'categories'])
-                    ->where('sub_category_id', $subcategory)->inRandomOrder()->paginate(1);
+                    ->where('sub_category_id', $subcategory)->inRandomOrder()->paginate(20);
 
 
                 //show title page
@@ -128,7 +128,7 @@ class SiteController extends Controller
             } else if ($collection) {
 
                 $product = Product::with(['collection', 'media', 'categories'])
-                    ->where('collection_id', $collection)->inRandomOrder()->paginate(1);
+                    ->where('collection_id', $collection)->inRandomOrder()->paginate(20);
 
 
                 //show title page
@@ -136,7 +136,7 @@ class SiteController extends Controller
                 $title = Collection::whereId($collection)->first();
                 $title_name =  $title['name'];
             } else {
-                $product = Product::inRandomOrder()->paginate(1);
+                $product = Product::inRandomOrder()->paginate(20);
                 $title_name = 'Boutique';
                 $title =   $category = Category::with('media')->get()->random(1);
             }

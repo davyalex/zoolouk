@@ -92,8 +92,8 @@
             </div><!--end row-->
         </div>
         <!--end produt grid-->
-        <div class="pro-pagination">
-            {!! $product->appends(request()->query())->links('pagination::custom') !!}
+        <div class="py-3 m-auto">
+            {!! $product->appends(request()->query())->links('pagination::bootstrap-4') !!}
 
         </div>
     </div>
