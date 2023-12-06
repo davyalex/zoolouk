@@ -48,7 +48,7 @@
         {{-- start  get product in category carrousel --}}
         @if ($category['type_affichage'] == 'carrousel')
             <div class="sales-accessories-slider">
-                @foreach ($category['products'] as $item)
+                @foreach ($category['products']->take(15) as $item)
                 <div class="card rounded-3 product-card" style="width: 100%;height:100% " >
                     <div class="position-relative overflow-hidden" style="width: 100%;height:200px ">
                             <a href="{{ route('product-detail', $item['id']) }}">
@@ -89,7 +89,7 @@
             <div class="product-grid">
                 <div class="row row-cols-2 row-cols-md-3 g-1">
 
-                    @foreach ($category['products'] as $item)
+                    @foreach ($category['products']->take(15) as $item)
                         <div class="col">
                             <div class="card rounded-3 product-card" style="width: 100%;height:100% " >
                                 <div class="position-relative overflow-hidden" style="width: 100%;height:200px ">
