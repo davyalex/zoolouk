@@ -85,7 +85,7 @@
 
                     <div class="py-3 m-auto">
                 
-                        {!! $product->appends(request()->query())->links('pagination::bootstrap-4') !!}
+                        {{$product->appends(request()->query())->links('pagination::bootstrap-4')}}
             
                     </div>
                 @else
