@@ -33,7 +33,7 @@ class SiteController extends Controller
 
         //category with product
         $category_with_product = Category::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('type', 'DESC') ->inRandomOrder()->get();
+        $q->with('media'))->orderBy('created_at', 'DESC')->inRandomOrder()->take(20);
 
         
         //subcategory with product
@@ -44,9 +44,9 @@ class SiteController extends Controller
         return view('site.home', compact('category', 'subcategory', 'category_with_product', 'collection', 'slider_banniere','subcategory_with_product'));
     }
 //return previous page
-    public function back(){
-        dd(url()->previous());
-    }
+    // public function back(){
+    //     dd(url()->previous());
+    // }
 
 
     /*********Get List category */

@@ -31,13 +31,13 @@
 {{-- ### --}}
 
 
-@foreach ($category_with_product as $item)
+@foreach ($category_with_product as $category)
     {{-- $product is category or section --}}
     <div class="sales-category-wrapper">
         <div class="section-cat">
             {{-- category  or section --}}
-            <h4 class="my-2 text-center fw-bold section-title " style="text-transform:uppercase">{{ $item['name'] }} 
-                <a href="/shop?category={{$item['id']}}" class="text-white">
+            <h4 class="my-2 text-center fw-bold section-title " style="text-transform:uppercase">{{ $category['name'] }} 
+                <a href="/shop?category={{$category['id']}}" class="text-white">
                     <i class="py-1" style="float:right; font-size:11px">Voir tout <i class="bi bi-chevron-right"></i> </i>
 
                 </a>
@@ -46,9 +46,9 @@
         </div>
 
         {{-- start  get product in category carrousel --}}
-        @if ($item['type_affichage'] == 'carrousel')
+        @if ($category['type_affichage'] == 'carrousel')
             <div class="sales-accessories-slider">
-                @foreach ($item['products'] as $item)
+                @foreach ($category['products'] as $item)
                 <div class="card rounded-3 product-card" style="width: 100%;height:100% " >
                     <div class="position-relative overflow-hidden" style="width: 100%;height:200px ">
                             <a href="{{ route('product-detail', $item['id']) }}">
@@ -85,11 +85,11 @@
 
 
             <!--start get product in category bloc -->
-        @elseif($item['type_affichage'] == 'bloc')
+        @elseif($category['type_affichage'] == 'bloc')
             <div class="product-grid">
                 <div class="row row-cols-2 row-cols-md-3 g-1">
 
-                    @foreach ($item['products'] as $item)
+                    @foreach ($category['products'] as $item)
                         <div class="col">
                             <div class="card rounded-3 product-card" style="width: 100%;height:100% " >
                                 <div class="position-relative overflow-hidden" style="width: 100%;height:200px ">
@@ -116,12 +116,21 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     @endforeach
+                    
+
+                    
+                  
 
 
 
                 </div><!--end row-->
+            </div>
+            <div class="card-body product-card">
+                <a href="/shop?category={{$category['id']}}" class="btn btn-ecomm rounded-3 border">Voir tous les produits {{$category['name']}} <i
+                    class="bi bi-arrow-right ms-2"></i></a>
             </div>
         @endif
         <!--end get product in category bloc-->

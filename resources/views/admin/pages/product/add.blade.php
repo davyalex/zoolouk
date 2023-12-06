@@ -211,7 +211,7 @@
                                 <div class="col-sm-12 col-md-7">
                                     <p class="card-text">
                                         <input type="file" id="files" class="form-control" name="files[]"
-                                            accept=".jpg, .jpeg, .png, .gif, .webp" multiple hidden required />
+                                            accept="image/*" multiple hidden required />
                                         <label for="files" class="btn btn-light btn-lg border">
                                             <i data-feather="image"></i>
                                             Ajoutez des images</label>
@@ -252,7 +252,7 @@
         if (window.File && window.FileList && window.FileReader) {
             $("#files").on("change", function(e) {
                 var files = e.target.files,
-                    filesLength = files.length;
+                filesLength = files.length;
                 for (var i = 0; i < filesLength; i++) {
                     var f = files[i]
                     var fileReader = new FileReader();
