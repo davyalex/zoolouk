@@ -33,7 +33,7 @@ class SiteController extends Controller
 
         //category with product
         $category_with_product = Category::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('created_at', 'DESC')->inRandomOrder()->take(20);
+        $q->with('media'))->orderBy('created_at', 'DESC')->inRandomOrder()->take(20)->get();
 
         
         //subcategory with product
