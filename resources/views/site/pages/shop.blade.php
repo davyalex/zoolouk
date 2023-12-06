@@ -82,21 +82,24 @@
                             </div>
                         </div>
                     @endforeach
+                    <div class="py-3 m-auto">
+                        {{-- @if ($product->count() > 0) --}}
+                            
+                        {!! $product->appends(request()->query())->links('pagination::bootstrap-4') !!}
+                        {{-- @endif --}}
+                @endif
                 @else
                     <h2 class="text-center mt-5 w-100">Pas de produit disponible
                         <br><small class="m-auto text-secondary fs-6">Pour la categorie ou votre recherche</small>
                     </h2>
-                @endif
+
+                 
 
 
             </div><!--end row-->
         </div>
         <!--end produt grid-->
-        <div class="py-3 m-auto">
-            @if ($product->count() > 0)
-                
-            {!! $product->appends(request()->query())->links('pagination::bootstrap-4') !!}
-            @endif
+       
 
         </div>
         <div class="py-2"></div>
