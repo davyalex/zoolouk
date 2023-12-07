@@ -315,7 +315,7 @@
         <footer class="page-footer border-top d-flex align-items-center justify-content-between">
             <div class="buttons  mb-5 d-flex flex-row gap-3 w-100">
                 <a 
-                target="_blank" href="https://wa.me/+2250779613593/?text= bonjour , je suis interressé par l'article {{ url()->current() }}
+                target="_blank" href="https://wa.me/+2250142855584/?text= bonjour , je suis interressé par l'article {{ url()->current() }}
                 " 
                 class="btn btn-green bg-green text-white btn-ecomm rounded-3"><i class="bi bi-whatsapp me-2"></i>commander par whatsapp</a>
                 <a href="{{ route('add.to.cart', $product['id']) }}" data-id="{{ $product['id'] }}"
