@@ -48,7 +48,7 @@
         {{-- start  get product in category carrousel --}}
         @if ($category['type_affichage'] == 'carrousel')
             <div class="sales-accessories-slider">
-                @foreach ($category['products']->take(15) as $item)
+                @foreach ($category['products']->sortBy('created_at','DESC')->take(16) as $item)
                 <div class="card rounded-3 product-card" style="width: 100%;height:100% " >
                     <div class="position-relative overflow-hidden" style="width: 100%;height:200px ">
                             <a href="{{ route('product-detail', $item['id']) }}">
@@ -60,7 +60,7 @@
 
                         <div class="card-body mt-0" style="padding:none">
                             <div class="hstack align-items-center justify-content-between">
-                                <h5 class="mb-0 product-short-title"
+                                <h5 class="mb-0 product-short-title text-capitalize"
                                     style="font-family:Montserrat,sans-serif; color:#404040;">
                                     {{ $item['title'] ? ucFirst(Str::limit($item['title'], 17, '...')) : $item['code'] }}
                                 </h5>
@@ -89,7 +89,7 @@
             <div class="product-grid">
                 <div class="row row-cols-2 row-cols-md-3 g-1">
 
-                    @foreach ($category['products']->take(16) as $item)
+                    @foreach ($category['products']->sortBy('created_at','DESC')->take(16) as $item)
                         <div class="col">
                             <div class="card rounded-3 product-card" style="width: 100%;height:100% " >
                                 <div class="position-relative overflow-hidden" style="width: 100%;height:200px ">
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="card-body" style="padding:none">
                                     <div class="hstack align-items-center justify-content-between">
-                                        <h5 class="mb-0 product-short-title"
+                                        <h5 class="mb-0 product-short-title text-capitalize"
                                             style="font-family:Montserrat,sans-serif; color:#404040">
                                             {{ $item['title'] ? ucFirst(Str::limit($item['title'], 17, '...')) : $item['code'] }}
                                         </h5>

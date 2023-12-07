@@ -19,10 +19,10 @@ class SiteController extends Controller
     {
         //category list
         $category = Category::with('media')
-        ->orderBy('created_at','DESC')
-        ->get();
+            ->orderBy('created_at', 'DESC')
+            ->get();
 
-         //category section has product list
+        //category section has product list
         //  $section_has_product = Category::withWhereHas('products', fn ($q) =>
         // $q->with('media'))
         // ->whereType('section')
@@ -41,16 +41,19 @@ class SiteController extends Controller
 
 
         //category with product
-        $category_with_product = Category::withWhereHas('products', fn ($q) =>
-        $q->with('media'), 
+        $category_with_product = Category::withWhereHas(
+            'products',
+            function ($q) {
+                $q->with('media');
+            }
         )
-        ->orderBy('created_at','DESC')
-        ->inRandomOrder()->get();
+            ->orderBy('created_at', 'DESC')
+            ->inRandomOrder()->get();
 
 
         //subcategory with product
         $subcategory_with_product = SubCategory::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('created_at') ->inRandomOrder()->get();
+        $q->with('media'))->orderBy('created_at', 'DESC')->inRandomOrder()->get();
         // dd($subcategory_with_product->toArray());
 
         return view('site.home', compact('category', 'subcategory', 'category_with_product', 'collection', 'slider_banniere', 'subcategory_with_product'));
@@ -165,7 +168,7 @@ class SiteController extends Controller
 
     public function searchProduct(Request $request)
     {
-       
+
         $search = $request['search'];
         $product = Product::with(['categories', 'subcategorie', 'media'])
             ->where('title', 'Like', "%{$search}%")
