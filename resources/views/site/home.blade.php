@@ -22,7 +22,7 @@
 
 
         <!--start category-->
-        {{-- @include('site.sections.category') --}}
+        @include('site.sections.category')
         <!--end category-->
 
 

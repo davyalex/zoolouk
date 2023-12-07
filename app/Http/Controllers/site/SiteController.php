@@ -20,6 +20,13 @@ class SiteController extends Controller
         //category list
         $category = Category::with('media')->get();
 
+         //category section has product list
+        //  $section_has_product = Category::withWhereHas('products', fn ($q) =>
+        // $q->with('media'))
+        // ->whereType('section')
+        // ->orderBy('name')->get();
+
+
         //subcat list
         $subcategory = SubCategory::withWhereHas('products', fn ($q) =>
         $q->with('media'))->orderBy('name', 'DESC')->get();

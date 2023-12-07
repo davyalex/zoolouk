@@ -11,7 +11,9 @@
     <div class=" row align-items-center ">
 
 @foreach ($category as $item)
-  <div class="category-img col-4">
+
+@if ($item['type']=='section' && $item->products->count() > 0)
+<div class="category-img col-4">
     <figure class="text-center">
         @if (count($item['subcategories'])> 0)
         <a href="/subcategory?c={{$item['id']}}">
@@ -24,6 +26,7 @@
         <figcaption>{{$item['name']}}</figcaption>
     </figure>
 </div>
+@endif
   @endforeach
     </div>
 </div>
