@@ -18,7 +18,9 @@ class SiteController extends Controller
     public function home()
     {
         //category list
-        $category = Category::with('media')->get();
+        $category = Category::with('media')
+        ->orderBy('type')
+        ->get();
 
          //category section has product list
         //  $section_has_product = Category::withWhereHas('products', fn ($q) =>
@@ -40,11 +42,11 @@ class SiteController extends Controller
 
         //category with product
         $category_with_product = Category::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('type')->inRandomOrder()->get();
+        $q->with('media'))->orderBy('created_at')->get();
 
         //subcategory with product
         $subcategory_with_product = SubCategory::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('name', 'ASC')->inRandomOrder()->get();
+        $q->with('media'))->orderBy('created_at')->get();
         // dd($subcategory_with_product->toArray());
 
         return view('site.home', compact('category', 'subcategory', 'category_with_product', 'collection', 'slider_banniere', 'subcategory_with_product'));

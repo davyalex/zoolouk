@@ -12,7 +12,7 @@
 
 @foreach ($category as $item)
 
-@if ($item['type']=='section' && $item->products->count() > 0)
+{{-- @if ($item['type']=='section' && $item->products->count() > 0) --}}
 <div class="category-img col-4">
     <figure class="text-center">
         @if (count($item['subcategories'])> 0)
@@ -23,10 +23,10 @@
         @endif
             <img src="{{$item->getFirstMediaUrl('category_image')}}" class="img-fluid rounded  adapted-image" alt="{{$item->getFirstMediaUrl('category_image')}}">
         </a>
-        <figcaption>{{$item['name']}}</figcaption>
+        {{-- <figcaption>{{$item['name']}}</figcaption> --}}
     </figure>
 </div>
-@endif
+{{-- @endif --}}
   @endforeach
     </div>
 </div>

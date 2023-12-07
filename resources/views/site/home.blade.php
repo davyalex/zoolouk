@@ -11,36 +11,37 @@
         @include('site.sections.slider')
         <!--end banner slider-->
 
-        
+
         <div class="p-0"></div>
-<!--start collection-->
-@include('site.sections.collection')
-<!--end collection-->
+        <!--start collection-->
+        @include('site.sections.collection')
+        <!--end collection-->
 
 
         {{-- <div class="py-1"></div> --}}
 
 
+
+
+        <!--start subcategory-->
+        {{-- @include('site.sections.subcategory') --}}
+        <!--end subcategory-->
+
         <!--start category-->
         @include('site.sections.category')
         <!--end category-->
 
-
-        <!--start subcategory-->
-        @include('site.sections.subcategory')
-        <!--end subcategory-->
-
         <div class="pb-2"></div>
-
-        <!--start subcategory and product-->
-        @include('site.sections.product_and_subcategory')
-        <!--end subcategory and product-->
-
-        <div class=""></div>
 
         <!--start category and product-->
         @include('site.sections.product_and_category')
         <!--end category and product-->
+
+        <div class=""></div>
+
+        <!--start subcategory and product-->
+        @include('site.sections.product_and_subcategory')
+        <!--end subcategory and product-->
 
         <div class="py-2"></div>
 

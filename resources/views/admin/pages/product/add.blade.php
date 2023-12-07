@@ -118,10 +118,10 @@
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Options</label>
-                                <div class="form-check form-check-inline">
+                                {{-- <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="section" value="option1">
                                     <label class="form-check-label" for="section">Sections</label>
-                                </div>
+                                </div> --}}
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="collection" value="option2">
                                     <label class="form-check-label" for="collection">Collections</label>
@@ -136,7 +136,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-4" id="sectionDiv">
+                            {{-- <div class="form-group row mb-4" id="sectionDiv">
                                 <label for=""
                                     class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Section
                                     Category</label>
@@ -152,7 +152,7 @@
                                 </div>
                                 <button type="button" data-toggle="modal" data-target="#modalAddCategory"
                                     class="btn btn-primary"><i data-feather="plus"></i> Add New</button>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group row mb-4" id="collectionDiv">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Collection</label>
@@ -325,7 +325,7 @@
 
 
         //hide elements
-        $('#sectionDiv').hide();
+        // $('#sectionDiv').hide();
         $('#collectionDiv').hide();
         $('#pointureDiv').hide();
         $('#tailleDiv').hide();
@@ -345,9 +345,9 @@
             $('#tailleDiv').toggle(200);
         });
 
-        $('#section').change(function() {
-            $('#sectionDiv').toggle(200);
-        });
+        // $('#section').change(function() {
+        //     $('#sectionDiv').toggle(200);
+        // });
 
 
 

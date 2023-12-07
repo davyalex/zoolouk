@@ -26,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         $category = Category::with(['products','media','subcategories'])
-        ->whereType('principale')
-        ->orderBy('name', 'ASC')->get();
+        // ->whereType('principale')
+        ->orderBy('name')->get();
 
         $subcategory = SubCategory::with(['products','media','category'])->orderBy('name', 'ASC')->get();
 
