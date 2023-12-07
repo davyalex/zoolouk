@@ -19,7 +19,7 @@ class SiteController extends Controller
     {
         //category list
         $category = Category::with('media')
-        ->orderBy('type')
+        ->orderBy('created_at','DESC')
         ->get();
 
          //category section has product list
