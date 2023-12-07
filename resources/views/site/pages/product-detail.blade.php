@@ -146,7 +146,7 @@
 
             <hr class="my-3">
             <div class="product-info">
-                <h6 class="fw-bold mb-2 text-dark">Description </h6>
+                <h6 class="fw-bold mb-2 text-dark">{{$product['description'] ? 'Description' : ''}} </h6>
 
                 <p class="mb-1">{!! $product['description'] !!} </p>
             </div>
@@ -314,10 +314,13 @@
         <!--start to footer-->
         <footer class="page-footer border-top d-flex align-items-center justify-content-between">
             <div class="buttons  mb-5 d-flex flex-row gap-3 w-100">
-                {{-- <a href="wishlist.html" class="btn btn-outline-dark btn-ecomm rounded-3"><i class="bi bi-suit-heart me-2"></i>Wishlist</a> --}}
+                <a 
+                target="_blank" href="https://wa.me/+2250779613593/?text= bonjour , je suis interressé par l'article {{ url()->current() }}
+                " 
+                class="btn btn-green bg-green text-white btn-ecomm rounded-3"><i class="bi bi-whatsapp me-2"></i>commander par whatsapp</a>
                 <a href="{{ route('add.to.cart', $product['id']) }}" data-id="{{ $product['id'] }}"
                     class="btn btn-dark btn-ecomm flex-grow-1 rounded-3 addCart"><i
-                        class="bi bi-basket2 me-2"></i>J'achète</a>
+                        class="bi bi-basket2 me-2"></i>Ajouter au panier</a>
             </div>
         </footer>
         <!--end to footer-->
