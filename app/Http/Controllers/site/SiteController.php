@@ -42,7 +42,7 @@ class SiteController extends Controller
 
         //category with product
         $category_with_product = Category::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('created_at','DESC')->get();
+        $q->with('media'))->orderBy('created_at','ASC')->get();
 
         //subcategory with product
         $subcategory_with_product = SubCategory::withWhereHas('products', fn ($q) =>
