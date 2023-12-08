@@ -89,9 +89,9 @@ Route::controller(SiteController::class)->group(function () {
         Route::get('/', 'index')->name('index'); //frame mobile
         Route::get('/home', 'home')->name('home');
     }elseif ((new \Jenssegers\Agent\Agent())->isTablet()) {
-        Route::get('/home', 'home')->name('home');
+        Route::get('/', 'home')->name('home');
     }elseif((new \Jenssegers\Agent\Agent())->isMobile()) {
-        Route::get('/home', 'home')->name('home');
+        Route::get('/', 'home')->name('home');
     }
     
 
