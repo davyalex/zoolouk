@@ -40,7 +40,6 @@
     </style>
     <!--start to page content-->
     <div class="page-content p-0">
-        
         <div class="page-banner mb-1 adapted-img-banner">
             <img src="{{ request('category')
                 ? $category->getFirstMediaUrl('category_banner')
@@ -50,9 +49,6 @@
                 class="img-fluid rounded-0" alt="...">
         </div>
 
-        <div class="pt-2"></div>
-        <!--start collection-->
-        @include('site.sections.collection')
         <!--start produt grid-->
         <div class="product-grid">
             <div class="row row-cols-2 row-cols-md-3 g-1">
@@ -94,17 +90,18 @@
 
 
             </div><!--end row-->
-            <div class="pt-3 m-auto">
-                @if ($product->count() > 0)
-                    
-                {!! $product->appends(request()->query())->links('pagination::bootstrap-4') !!}
-                @endif
-    
-            </div>
         </div>
         <!--end produt grid-->
-       
-     
+        <div class="py-3 m-auto">
+            @if ($product->count() > 0)
+                
+            {!! $product->appends(request()->query())->links('pagination::bootstrap-4') !!}
+            @endif
+
+        </div>
+        {{-- <div class="py-2"></div>
+        <!--start collection-->
+        @include('site.sections.collection') --}}
     </div>
     <!--end to page content-->
 @endsection
