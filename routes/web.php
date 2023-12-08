@@ -85,7 +85,9 @@ Route::controller(VendorController::class)->group(function () {
 
 
 Route::controller(SiteController::class)->group(function () {
-    Route::get('/', 'home')->name('home');
+    Route::get('/', 'index')->name('index'); //frame mobile
+    Route::get('/home', 'home')->name('home');
+
     Route::get('/category-list', 'categoryList')->name('category-list');
     Route::get('/subcategory', 'subCategoryList')->name('subcategory-list');
     Route::get('/product-detail/{id}', 'product_detail')->name('product-detail');
