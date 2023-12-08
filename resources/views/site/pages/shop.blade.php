@@ -90,18 +90,20 @@
 
 
             </div><!--end row-->
+
+            <div class="py-2 m-auto">
+                @if ($product->count() > 0)
+                    
+                {!! $product->appends(request()->query())->links('pagination::bootstrap-4') !!}
+                @endif
+    
+            </div>
         </div>
         <!--end produt grid-->
-        <div class="py-3 m-auto">
-            @if ($product->count() > 0)
-                
-            {!! $product->appends(request()->query())->links('pagination::bootstrap-4') !!}
-            @endif
-
-        </div>
-        {{-- <div class="py-2"></div>
+        
+        <div class="py-2"></div>
         <!--start collection-->
-        @include('site.sections.collection') --}}
+        @include('site.sections.collection')
     </div>
     <!--end to page content-->
 @endsection
