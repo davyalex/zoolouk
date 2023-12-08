@@ -27,7 +27,7 @@
                                 <div class="d-flex flex-row align-items-start align-items-stretch gap-3">
 
                                     <div class="product-img">
-                                        <img src="  {{ $item['products'][0]->getFirstmediaUrl('product_image') }}"
+                                        <img src="{{asset('assets/images/avatars/orderIcon.png')}}"
                                             class="rounded-3" width="100" alt="">
                                     </div>
 
@@ -35,7 +35,7 @@
                                     <div class="product-info flex-grow-1">
                                         <h6 class="fw-bold mb-1 text-dark"><i>Commande #{{ $item['code'] }}</i> </h6>
                                         <p class="mb-0"> Commandé le {{ $item['created_at']->format('d-m-Y') }} </p>
-                                        <p class="mb-0"> {{ $item['products']->count() }} produits commandé(s) </p>
+                                        <h6 class="fw-bold">{{$item->products->count()}} article(s) commandé(s) </h6>
                                         <p class="mb-0 px-2 text-bg-success "> statut: {{$item['status']}} <b></b></p>
 
                                         <div class="mt-3 hstack gap-2">

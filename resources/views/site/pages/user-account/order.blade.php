@@ -25,17 +25,18 @@
                         <a href="{{ route('detail-order', $item['id']) }}">
                             <li class="list-group-item py-3">
                                 <div class="d-flex flex-row align-items-start align-items-stretch gap-3">
-                                    @foreach ($item->products as $image)
+                                    {{-- @foreach ($item->products as $image) --}}
                                         <div class="product-img">
-                                            <img src="  {{ $image->getFirstmediaUrl('product_image') }}" class="rounded-3"
-                                                width="100" alt="">
+                                            <img src="{{asset('assets/images/avatars/orderIcon.png')}}"
+                                            class="rounded-3" width="100" alt="">
                                         </div>
-                                    @endforeach
+                                    {{-- @endforeach --}}
 
 
                                     <div class="product-info flex-grow-1">
                                         <h6 class="fw-bold mb-1 text-dark"><i>Commande #{{ $item['code'] }}</i> </h6>
                                         <p class="mb-0"> Commandé le {{ $item['created_at']->format('d-m-Y') }} </p>
+                                        <h5>{{$item->products->count()}} article(s) commandé(s) </h5>
                                         <div class="mt-3 hstack gap-2">
                                             <button type="button" class="btn btn-sm bg-dark text-white border rounded-3">Statut
                                                 :{{ $item['status'] }} </button>

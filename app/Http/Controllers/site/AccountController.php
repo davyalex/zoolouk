@@ -37,6 +37,7 @@ class AccountController extends Controller
         }
     }
 
+    
     // profile user
     public function profile(Request $request, $id)
     {
