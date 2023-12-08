@@ -171,6 +171,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
 
     ])->toArray(),
 
@@ -189,6 +190,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
     ])->toArray(),
 

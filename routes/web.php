@@ -85,8 +85,15 @@ Route::controller(VendorController::class)->group(function () {
 
 
 Route::controller(SiteController::class)->group(function () {
-    Route::get('/', 'index')->name('index'); //frame mobile
-    Route::get('/home', 'home')->name('home');
+    if ((new \Jenssegers\Agent\Agent())->isDesktop()) {
+        Route::get('/', 'index')->name('index'); //frame mobile
+        Route::get('/home', 'home')->name('home');
+    }elseif ((new \Jenssegers\Agent\Agent())->isTablet()) {
+        Route::get('/home', 'home')->name('home');
+    }elseif((new \Jenssegers\Agent\Agent())->isMobile()) {
+        Route::get('/home', 'home')->name('home');
+    }
+    
 
     Route::get('/category-list', 'categoryList')->name('category-list');
     Route::get('/subcategory', 'subCategoryList')->name('subcategory-list');
