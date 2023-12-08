@@ -52,7 +52,7 @@ public function index(){
                 $q->with('media');
             }
         )
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('name')
             ->inRandomOrder()->get();
 
 
