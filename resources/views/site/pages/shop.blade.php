@@ -97,12 +97,14 @@
                 @endif
     
             </div>
+
+            <div class="pt-2"></div>
+            <!--start collection-->
+            @include('site.sections.collection')
         </div>
         <!--end produt grid-->
        
-        <div class="pt-2"></div>
-        <!--start collection-->
-        @include('site.sections.collection')
+       
     </div>
     <!--end to page content-->
 @endsection
