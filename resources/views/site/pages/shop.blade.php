@@ -99,7 +99,7 @@
             @endif
 
         </div>
-        <div class="py-2"></div>
+        <div class="pt-2"></div>
         <!--start collection-->
         @include('site.sections.collection')
     </div>
