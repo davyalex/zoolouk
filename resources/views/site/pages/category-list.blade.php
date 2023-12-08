@@ -45,9 +45,12 @@
                 </a>
             </div>
             @endforeach
-          
-        </div><!--end row-->
 
+        </div><!--end row-->
+        <div class="pt-2"></div>
+        <!--start collection-->
+        @include('site.sections.collection')
     </div>
+    
     <!--end to page content-->
 @endsection
