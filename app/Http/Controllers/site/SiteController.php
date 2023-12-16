@@ -53,12 +53,12 @@ public function index(){
             }
         )
             ->orderBy('name')
-            ->inRandomOrder()->take(26);
+            ->inRandomOrder()->take(26)->get();
 
 
         //subcategory with product
         $subcategory_with_product = SubCategory::withWhereHas('products', fn ($q) =>
-        $q->with('media'))->orderBy('name')->inRandomOrder()->take(26);
+        $q->with('media'))->orderBy('name')->inRandomOrder()->take(26)->get();
         // dd($subcategory_with_product->toArray());
 
         return view('site.home', compact('category', 'subcategory', 'category_with_product', 'collection', 'slider_banniere', 'subcategory_with_product'));
