@@ -14,7 +14,7 @@
 
         <div class="p-0"></div>
         <!--start collection-->
-        @include('site.sections.collection')
+        {{-- @include('site.sections.collection') --}}
         <!--end collection-->
 
 
